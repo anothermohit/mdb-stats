@@ -82,7 +82,7 @@ class Product extends Component {
                     <Card>
                       <Row>
                       <Col xs="1">
-                        <img src={'/avatar.png'} className="avatar" width={40} style={{margin: 10}} alt="admin@bootstrapmaster.com" />
+                        <img src={'/sample/avatar.png'} className="avatar" width={40} style={{margin: 10}} alt="admin@bootstrapmaster.com" />
                       </Col>
                       <Col xs="3">
                         <p style={{marginTop: 16, marginLeft: 0,fontWeight: 'bold'}}>Sample User</p>
@@ -111,7 +111,7 @@ class Product extends Component {
                     <Card style={{marginTop: 20}}>
                       <Row>
                       <Col xs="1">
-                        <img src={'/avatar.png'} className="avatar" width={40} style={{margin: 10}} alt="admin@bootstrapmaster.com" />
+                        <img src={'/sample/avatar.png'} className="avatar" width={40} style={{margin: 10}} alt="admin@bootstrapmaster.com" />
                       </Col>
                       <Col xs="3">
                         <p style={{marginTop: 16, marginLeft: 0, fontWeight: 'bold'}}>Sample User</p>

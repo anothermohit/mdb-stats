@@ -29,7 +29,7 @@ export default class Header extends React.Component {
                data-toggle="dropdown"
                aria-expanded={this.state.dropdownOpen}
               >
-              <img src="/avatar.png" style={{marginTop: 14}} className="cursor-pointer avatar float-right" alt="User" />
+              <img src="/sample/avatar.png" style={{marginTop: 14}} className="cursor-pointer avatar float-right" alt="User" />
             </DropdownToggle>
             <DropdownMenu right style={{position: 'absolute', top: 48, right: 0}}>
               <DropdownItem>
