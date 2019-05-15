@@ -1,33 +1,155 @@
-.App {
-  text-align: center;
+@import url(//db.onlinewebfonts.com/c/4a6eb0defb3281b0851a205bf769a0c8?family=Expletus+Sans);
+
+body {
+  font-family: 'Expletus Sans', cursive !important;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+p {
+  font-size: 14px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.margin-0 {
+  margin: 0px;
+}
+
+.margin-20 {
+  margin: 20px;
+}
+
+.hmargin-20 {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.vmargin-20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.padding-80 {
+  padding: 80px;
+}
+
+.white-background {
+  background-color: white;
+}
+
+.black-color {
+  color: #1E1E1E;
+}
+
+.white-color {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.blue-color {
+  color: #4F6DF5;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.blue-background {
+  background-color: #4F6DF5 !important;
 }
+
+.light-blue-background {
+  background-color: #F7F9FB;
+}
+
+.fixed-position {
+  position: fixed;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.font-44 {
+  font-size: 44px;
+}
+
+.font-weight-600{
+  font-weight: 600;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.center-align {
+  text-align: center;
+}
+
+.transparent-background {
+  background: transparent !important;
+}
+
+.white-border {
+  border: 0.5px dotted white !important;
+}
+
+.no-decoration, a:link, a:visited, a:hover {
+  text-decoration: none !important;
+}
+
+.z-index-100 {
+  z-index: 100;
+}
+
+.no-border {
+  border: 0 !important;
+}
+
+.bold {
+  font-weight: 'bold' !important;
+}
+
+/* Product */
+
+fieldset, label { margin: 0; padding: 0; }
+h1 { font-size: 1.5em; margin: 10px; }
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+  border: none;
+  float: right;
+}
+
+.rating > input { display: none; }
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label {
+  color: #ddd;
+ float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
