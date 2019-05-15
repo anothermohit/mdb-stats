@@ -82,18 +82,20 @@ class Product extends Component {
                     <Card>
                       <Row>
                       <Col md="1">
-                        <img src={'../../../assets/img/avatars/6.jpg'} className="img-avatar" width={40} style={{margin: 10}} alt="admin@bootstrapmaster.com" />
+                        <img src={'/avatar.png'} className="avatar" width={40} style={{margin: 10}} alt="admin@bootstrapmaster.com" />
                       </Col>
                       <Col md="2">
                         <p style={{marginTop: 16, marginLeft: -5, fontWeight: 'bold'}}>Sample User</p>
                       </Col>
                       </Row>
                       <Row>
-                        <Input style={{height: 70, marginLeft: 15}} type="textarea" name="text" className="textarea" id="submit-review" onClick={this.writing.bind(this)} placeholder="Write a review ..."/>
+                        <Col md="12">
+                          <Input style={{height: 70}} type="textarea" name="text" className="textarea" id="submit-review" onClick={this.writing.bind(this)} placeholder="Write a review ..."/>
+                        </Col>
                       </Row>
                     </Card>
                   </div>
-                    <Button onClick={this.addReview.bind(this)} className="float-right" style={{width: 100, backgroundColor:'#4F6DF5', color: 'white', marginTop: 50}} block>Submit</Button>
+                    <Button onClick={this.addReview.bind(this)} className="float-right" style={{width: 100, backgroundColor:'#4F6DF5', color: 'white', marginTop: 60}} block>Submit</Button>
                 </div>
               </Col>
             </Row>
@@ -106,10 +108,10 @@ class Product extends Component {
               <Col md="8">
                 {this.state.reviews.map((review) => (
                   <div>
-                    <Card>
+                    <Card style={{marginTop: 20}}>
                       <Row>
                       <Col md="1">
-                        <img src={'../../../assets/img/avatars/6.jpg'} className="img-avatar" width={40} style={{margin: 10}} alt="admin@bootstrapmaster.com" />
+                        <img src={'/avatar.png'} className="avatar" width={40} style={{margin: 10}} alt="admin@bootstrapmaster.com" />
                       </Col>
                       <Col md="2">
                         <p style={{marginTop: 16, marginLeft: -5, fontWeight: 'bold'}}>Sample User</p>
@@ -117,7 +119,7 @@ class Product extends Component {
                       </Row>
                       <p className="margin-10">{review}</p>
                     </Card>
-                    <Button className="submit float-right" style={{marginTop: -15, marginBottom: 15, fontSize: 12}}>Helpful</Button>
+                    <Button className="submit float-right" style={{marginTop: 10, fontSize: 12}}>Helpful</Button>
                     <br />
                     <br />
                   </div>
