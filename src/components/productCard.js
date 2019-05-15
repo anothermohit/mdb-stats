@@ -26,13 +26,9 @@ class ProductCard extends Component {
     });
   }
 
-  goToLogin() {
-    window.location.href = "/#/login"
-  }
-
   render() {
     return (
-      <Card style={{width: 350, minHeight: 213, marginBottom: 20}}>
+      <Card className="margin-auto" style={{width: 360, minHeight: 213, marginBottom: 20}}>
         <Link to="/product">
         <h5 className="no-decoration black-color margin-0 margin-20">ICICI Bank April FUT</h5>
         <p className="no-decoration black-color margin-0 hmargin-20">Technical: MACD (9,26,35)</p>
@@ -58,7 +54,9 @@ class ProductCard extends Component {
           <Col xs="6">
           </Col>
           <Col xs="6" className="no-decoration black-color text-right">
-            <Button style={{marginLeft: -20}} onClick={this.goToLogin.bind(this)} className="no-decoration black-color vmargin-20 white-color blue-background no-border" block>Execute</Button>
+            <Link to="/login">
+              <Button style={{marginLeft: -20}} className="no-decoration black-color vmargin-20 white-color blue-background no-border" block>Execute</Button>
+            </Link>
           </Col>
         </Row>
       </Card>

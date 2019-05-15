@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Badge, Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import ProductCard from './productCard.js';
 import Tables from './tables.js';
-import Dashboard from './dashboard.js';
+import DashboardCurve from './dashboard-curve.js';
 
 class Product extends Component {
   constructor(props) {
@@ -51,7 +51,7 @@ class Product extends Component {
               <Col md="2">
               </Col>
               <Col md="8">
-                <Dashboard />
+                <DashboardCurve />
               </Col>
             </Row>
 
@@ -59,7 +59,7 @@ class Product extends Component {
               <Col md="2">
               </Col>
               <Col md="8">
-                <fieldset style={{marginTop: -24, marginBottom: 24}} class="rating">
+                <fieldset style={{marginBottom: 24}} class="rating">
                   <input type="radio" id="star5" name="rating" value="5" /><label className="full cursor-pointer" for="star5" title="Awesome - 5 stars"></label>
                   <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half cursor-pointer" for="star4half" title="Pretty good - 4.5 stars"></label>
                   <input type="radio" id="star4" name="rating" value="4" /><label className="full cursor-pointer" for="star4" title="Pretty good - 4 stars"></label>
@@ -81,11 +81,11 @@ class Product extends Component {
                   <div style={{height: 80}}>
                     <Card>
                       <Row>
-                      <Col md="1">
+                      <Col xs="1">
                         <img src={'/avatar.png'} className="avatar" width={40} style={{margin: 10}} alt="admin@bootstrapmaster.com" />
                       </Col>
-                      <Col md="2">
-                        <p style={{marginTop: 16, marginLeft: -5, fontWeight: 'bold'}}>Sample User</p>
+                      <Col xs="3">
+                        <p style={{marginTop: 16, marginLeft: 0,fontWeight: 'bold'}}>Sample User</p>
                       </Col>
                       </Row>
                       <Row>
@@ -95,7 +95,7 @@ class Product extends Component {
                       </Row>
                     </Card>
                   </div>
-                    <Button onClick={this.addReview.bind(this)} className="float-right" style={{width: 100, backgroundColor:'#4F6DF5', color: 'white', marginTop: 60}} block>Submit</Button>
+                    <Button onClick={this.addReview.bind(this)} className="float-right no-border" style={{width: 100, backgroundColor:'#4F6DF5', color: 'white', marginTop: 60}} block>Submit</Button>
                 </div>
               </Col>
             </Row>
@@ -110,11 +110,11 @@ class Product extends Component {
                   <div>
                     <Card style={{marginTop: 20}}>
                       <Row>
-                      <Col md="1">
+                      <Col xs="1">
                         <img src={'/avatar.png'} className="avatar" width={40} style={{margin: 10}} alt="admin@bootstrapmaster.com" />
                       </Col>
-                      <Col md="2">
-                        <p style={{marginTop: 16, marginLeft: -5, fontWeight: 'bold'}}>Sample User</p>
+                      <Col xs="3">
+                        <p style={{marginTop: 16, marginLeft: 0, fontWeight: 'bold'}}>Sample User</p>
                       </Col>
                       </Row>
                       <p className="margin-10">{review}</p>

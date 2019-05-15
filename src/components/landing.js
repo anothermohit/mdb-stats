@@ -1,15 +1,13 @@
 import React from 'react';
-import {Container, Row, Col, Card} from 'reactstrap';
+import { Link } from 'react-router-dom';
+import {Container, Row, Col, Card, Button} from 'reactstrap';
 import Features from './features';
-import Listings from './listings';
 
-export default class Content extends React.Component {
+export default class Landing extends React.Component {
   render() {
-
-    console.log('content')
     return (
       <div className="full-width full-height">
-        <div style={{backgroundImage: 'url("/home-center.jpg")', paddingTop: 60}}>
+        <div className="banner-background" style={{paddingTop: 60}}>
           <Container className="white-color">
             <div className="padding-80">
               <div className="center-align">
@@ -49,14 +47,10 @@ export default class Content extends React.Component {
           <Features />
         </div>
 
-        <div className="light-blue-background">
-          <Listings />
-        </div>
+        <Link to="/strategies">
+          <Button className="no-border margin-auto" style={{width: 200, backgroundColor:'#4F6DF5', color: 'white', marginBottom: 20}} block>Explore Strategies</Button>
+        </Link>
       </div>
     )
   }
 }
-
-/*
-<img className="full-width full-height" src="/home-center.jpg" />
-*/

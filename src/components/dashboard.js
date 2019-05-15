@@ -1,523 +1,223 @@
-import React, { Component, lazy, Suspense } from 'react';
-import { Bar, Line } from 'react-chartjs-2';
-import {
-  Badge,
-  Button,
-  ButtonDropdown,
-  ButtonGroup,
-  ButtonToolbar,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-  Col,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
-  Progress,
-  Row,
-  Table,
-} from 'reactstrap';
-//import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
-//import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import classNames from 'classnames';
+import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardHeader, CardSubtitle, Container, Button, Table, ButtonToolbar, ButtonGroup } from 'reactstrap'
+import ProductCard from './productCard';
 
-const Widget03 = lazy(() => import('./Widget03'));
-
-/*
-const brandPrimary = getStyle('--primary')
-const brandPrimary = getStyle('--success')
-const brandInfo = getStyle('--info')
-const brandWarning = getStyle('--warning')
-const brandDanger = getStyle('--danger')
-*/
-const brandSuccess = 'blue';
-const brandPrimary = 'white';
-const brandSecondary = 'blue';
-const brandInfo = 'green';
-const brandWarning = 'yellow';
-const brandDanger = 'red';
-
-// Card Chart 1
-const cardChartData1 = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: brandPrimary,
-      borderColor: 'rgba(255,255,255,.55)',
-      data: [65, 59, 84, 84, 51, 55, 40],
-    },
-  ],
-};
-
-const cardChartOpts1 = {
-  tooltips: {
-    enabled: true,
-    //custom: CustomTooltips
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        gridLines: {
-          color: 'transparent',
-          zeroLineColor: 'transparent',
-        },
-        ticks: {
-          fontSize: 2,
-          fontColor: 'transparent',
-        },
-
-      }],
-    yAxes: [
-      {
-        display: false,
-        ticks: {
-          display: false,
-          min: Math.min.apply(Math, cardChartData1.datasets[0].data) - 5,
-          max: Math.max.apply(Math, cardChartData1.datasets[0].data) + 5,
-        },
-      }],
-  },
-  elements: {
-    line: {
-      borderWidth: 1,
-    },
-    point: {
-      radius: 4,
-      hitRadius: 10,
-      hoverRadius: 4,
-    },
-  }
-}
-
-
-// Card Chart 2
-const cardChartData2 = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: brandInfo,
-      borderColor: 'rgba(255,255,255,.55)',
-      data: [1, 18, 9, 17, 34, 22, 11],
-    },
-  ],
-};
-
-const cardChartOpts2 = {
-  tooltips: {
-    enabled: true,
-    //custom: CustomTooltips
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        gridLines: {
-          color: 'transparent',
-          zeroLineColor: 'transparent',
-        },
-        ticks: {
-          fontSize: 2,
-          fontColor: 'transparent',
-        },
-
-      }],
-    yAxes: [
-      {
-        display: false,
-        ticks: {
-          display: false,
-          min: Math.min.apply(Math, cardChartData2.datasets[0].data) - 5,
-          max: Math.max.apply(Math, cardChartData2.datasets[0].data) + 5,
-        },
-      }],
-  },
-  elements: {
-    line: {
-      tension: 0.00001,
-      borderWidth: 1,
-    },
-    point: {
-      radius: 4,
-      hitRadius: 10,
-      hoverRadius: 4,
-    },
-  },
-};
-
-// Card Chart 3
-const cardChartData3 = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: 'rgba(255,255,255,.2)',
-      borderColor: 'rgba(255,255,255,.55)',
-      data: [78, 81, 80, 45, 34, 12, 40],
-    },
-  ],
-};
-
-const cardChartOpts3 = {
-  tooltips: {
-    enabled: true,
-    //custom: CustomTooltips
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        display: false,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-  elements: {
-    line: {
-      borderWidth: 2,
-    },
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-    },
-  },
-};
-
-// Card Chart 4
-const cardChartData4 = {
-  labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: 'rgba(255,255,255,.3)',
-      borderColor: 'transparent',
-      data: [78, 81, 80, 45, 34, 12, 40, 75, 34, 89, 32, 68, 54, 72, 18, 98],
-    },
-  ],
-};
-
-const cardChartOpts4 = {
-  tooltips: {
-    enabled: true,
-    //custom: CustomTooltips
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        display: false,
-        barPercentage: 0.6,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-};
-
-// Social Box Chart
-const socialBoxData = [
-  { data: [65, 59, 84, 84, 51, 55, 40], label: 'facebook' },
-  { data: [1, 13, 9, 17, 34, 41, 38], label: 'twitter' },
-  { data: [78, 81, 80, 45, 34, 12, 40], label: 'linkedin' },
-  { data: [35, 23, 56, 22, 97, 23, 64], label: 'google' },
-];
-
-const makeSocialBoxData = (dataSetNo) => {
-  const dataset = socialBoxData[dataSetNo];
-  const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-      {
-        backgroundColor: 'rgba(255,255,255,.1)',
-        borderColor: 'rgba(255,255,255,.55)',
-        pointHoverBackgroundColor: '#fff',
-        borderWidth: 2,
-        data: dataset.data,
-        label: dataset.label,
-      },
-    ],
-  };
-  return () => data;
-};
-
-const socialChartOpts = {
-  tooltips: {
-    enabled: true,
-    //custom: CustomTooltips
-  },
-  responsive: true,
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        display: false,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-  elements: {
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-      hoverBorderWidth: 3,
-    },
-  },
-};
-
-// sparkline charts
-const sparkLineChartData = [
-  {
-    data: [35, 23, 56, 22, 97, 23, 64],
-    label: 'New Clients',
-  },
-  {
-    data: [65, 59, 84, 84, 51, 55, 40],
-    label: 'Recurring Clients',
-  },
-  {
-    data: [35, 23, 56, 22, 97, 23, 64],
-    label: 'Pageviews',
-  },
-  {
-    data: [65, 59, 84, 84, 51, 55, 40],
-    label: 'Organic',
-  },
-  {
-    data: [78, 81, 80, 45, 34, 12, 40],
-    label: 'CTR',
-  },
-  {
-    data: [1, 13, 9, 17, 34, 41, 38],
-    label: 'Bounce Rate',
-  },
-];
-
-const makeSparkLineData = (dataSetNo, variant) => {
-  const dataset = sparkLineChartData[dataSetNo];
-  const data = {
-    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-    datasets: [
-      {
-        backgroundColor: 'transparent',
-        borderColor: variant ? variant : '#c2cfd6',
-        data: dataset.data,
-        label: dataset.label,
-      },
-    ],
-  };
-  return () => data;
-};
-
-const sparklineChartOpts = {
-  tooltips: {
-    enabled: true,
-    //custom: CustomTooltips
-  },
-  responsive: true,
-  maintainAspectRatio: true,
-  scales: {
-    xAxes: [
-      {
-        display: false,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-  elements: {
-    line: {
-      borderWidth: 2,
-    },
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-      hoverBorderWidth: 3,
-    },
-  },
-  legend: {
-    display: false,
-  },
-};
-
-// Main Chart
-
-//Random Numbers
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-var elements = 27;
-var data1 = [];
-var data2 = [];
-var data3 = [];
-
-for (var i = 0; i <= elements; i++) {
-  data1.push(random(50, 200));
-  data2.push(random(80, 100));
-  data3.push(65);
-}
-
-const mainChart = {
-  labels: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      borderColor: brandInfo,
-      pointHoverBackgroundColor: '#fff',
-      borderWidth: 2,
-      data: data1,
-    },
-    {
-      label: 'My Second dataset',
-      backgroundColor: 'transparent',
-      borderColor: brandSuccess,
-      pointHoverBackgroundColor: '#fff',
-      borderWidth: 2,
-      data: data2,
-    },
-    {
-      label: 'My Third dataset',
-      backgroundColor: 'transparent',
-      borderColor: brandDanger,
-      pointHoverBackgroundColor: '#fff',
-      borderWidth: 1,
-      borderDash: [8, 5],
-      data: data3,
-    },
-  ],
-};
-
-const mainChartOpts = {
-  tooltips: {
-    enabled: true,
-    //custom: CustomTooltips,
-    intersect: true,
-    mode: 'index',
-    position: 'nearest',
-    callbacks: {
-      labelColor: function(tooltipItem, chart) {
-        return { backgroundColor: chart.data.datasets[tooltipItem.datasetIndex].borderColor }
-      }
-    }
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        gridLines: {
-          drawOnChartArea: false,
-        },
-      }],
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-          maxTicksLimit: 5,
-          stepSize: Math.ceil(250 / 5),
-          max: 250,
-        },
-      }],
-  },
-  elements: {
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-      hoverBorderWidth: 3,
-    },
-  },
-};
-
-class Dashboard extends Component {
+class ThemeView extends Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
-    this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
-
     this.state = {
-      dropdownOpen: false,
-      radioSelected: 2,
-    };
+      bgColor: 'rgb(255, 255, 255)'
+    }
   }
 
-  toggle() {
+  componentDidMount () {
+    const elem = ReactDOM.findDOMNode(this).parentNode.firstChild
+    const color = window.getComputedStyle(elem).getPropertyValue('background-color')
     this.setState({
-      dropdownOpen: !this.state.dropdownOpen,
-    });
+      bgColor: color || this.state.bgColor
+    })
   }
-
-  onRadioBtnClick(radioSelected) {
-    this.setState({
-      radioSelected: radioSelected,
-    });
-  }
-
-  loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   render() {
 
     return (
-      <div className="animated fadeIn">
+      <table className="w-100">
+        <tbody>
+        <tr>
+          <td className="text-muted">HEX:</td>
+          <td className="font-weight-bold">{ 'white' }</td>
+        </tr>
+        <tr>
+          <td className="text-muted">RGB:</td>
+          <td className="font-weight-bold">{ this.state.bgColor }</td>
+        </tr>
+        </tbody>
+      </table>
+    )
+  }
+}
+
+class ThemeColor extends Component {
+   constructor(props) {
+     super(props);
+   }
+
+  render() {
+
+    // const { className, children, ...attributes } = this.props
+    const { className, children } = this.props
+
+    const classes = classNames(className, 'theme-color w-75 rounded mb-3')
+
+    return (
+      <Col xl="2" md="4" sm="6" xs="12" className="mb-4">
+        <div className={classes} style={{paddingTop: '75%'}}></div>
+        {children}
+        <ThemeView/>
+      </Col>
+    )
+  }
+}
+
+class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+  this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
+
+  this.state = {
+    radioSelected: 2,
+  };
+}
+
+onRadioBtnClick(radioSelected) {
+  this.setState({
+    radioSelected: radioSelected,
+  });
+}
+
+  render() {
+    return (
+      <div className="light-blue-background">
+        <Container className="animated fadeIn">
+          <h2>Your Dashboard</h2>
+          <br />
+          <h5 className="no-decoration blue-color" style={{marginTop: 40}}>Your Portfolio At A Glance</h5>
+          <br />
+          <h6>Algo Trading Status :</h6>
+
         <Row>
-          <Col>
-            <Card>
-              <CardBody>
-                <Row>
-                  <Col sm="5">
-                    <CardTitle className="mb-0">Traffic</CardTitle>
-                    <div className="small text-muted">November 2015</div>
-                  </Col>
-                  <Col sm="7" className="d-none d-sm-inline-block">
-                    <Button color="primary" className="float-right"><i className="icon-cloud-download"></i></Button>
-                    <ButtonToolbar className="float-right" aria-label="Toolbar with button groups">
-                      <ButtonGroup className="mr-3" aria-label="First group">
-                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(1)} active={this.state.radioSelected === 1}>Day</Button>
-                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(2)} active={this.state.radioSelected === 2}>Month</Button>
-                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(3)} active={this.state.radioSelected === 3}>Year</Button>
-                      </ButtonGroup>
-                    </ButtonToolbar>
-                  </Col>
-                </Row>
-                <div className="chart-wrapper" style={{ height: 300 + 'px', marginTop: 40 + 'px' }}>
-                  <Line data={mainChart} options={mainChartOpts} height={300} />
-                </div>
-              </CardBody>
-            </Card>
+          <Col xs="12" sm="6" md="4">
+          <ProductCard />
+          </Col>
+          <Col xs="12" sm="6" md="4">
+          <ProductCard />
+          </Col>
+          <Col xs="12" sm="6" md="4">
+          <ProductCard />
           </Col>
         </Row>
-      </div>
+          <h6>
+          Go to your <a className="no-decoration blue-color" href="/#/broking-account/portfolio">Portfolio</a>
+          </h6>
+          <br />
+          <br />
+          <h5 className="no-decoration blue-color">Your Recent Trades:</h5>
+          <Col sm="12" className="d-none d-sm-inline-block">
+            <ButtonToolbar className="float-right" aria-label="Toolbar with button groups">
+              <ButtonGroup className="mr-3" aria-label="First group">
+              <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(1)} active={this.state.radioSelected === 1}>Day</Button>
+              <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(2)} active={this.state.radioSelected === 2}>Week</Button>
+              <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(3)} active={this.state.radioSelected === 3}>Month</Button>
+              <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(4)} active={this.state.radioSelected === 4}>Year</Button>
+              </ButtonGroup>
+            </ButtonToolbar>
+          </Col>
+
+          <Table>
+         <thead>
+           <tr>
+             <th>#</th>
+             <th>First Name</th>
+             <th>Last Name</th>
+             <th>Username</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <th scope="row">1</th>
+             <td>Mark</td>
+             <td>Otto</td>
+             <td>@mdo</td>
+           </tr>
+           <tr>
+             <th scope="row">2</th>
+             <td>Jacob</td>
+             <td>Thornton</td>
+             <td>@fat</td>
+           </tr>
+           <tr>
+             <th scope="row">3</th>
+             <td>Larry</td>
+             <td>the Bird</td>
+             <td>@twitter</td>
+           </tr>
+         </tbody>
+       </Table>
+       <h6>Go To Your <a className="no-decoration blue-color" href="/#/transactions/trading-orders">TradeBook</a></h6>
+       <br />
+       <br />
+       <h5 className="no-decoration blue-color">Your Recent Transactions:</h5>
+       <br />
+       <Table bordered>
+        <thead>
+          <tr>
+            <th colspan="3">
+            <Col sm="12" className="d-none d-sm-inline-block">
+              <ButtonToolbar className="float-left" aria-label="Toolbar with button groups">
+                <ButtonGroup className="mr-3" aria-label="First group">
+                <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(1)} active={this.state.radioSelected === 1}>All</Button>
+                <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(2)} active={this.state.radioSelected === 2}>Cat.1</Button>
+                <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(3)} active={this.state.radioSelected === 3}>Cat.2</Button>
+                <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(4)} active={this.state.radioSelected === 4}>Cat.3</Button>
+                <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(5)} active={this.state.radioSelected === 5}>Cat.4</Button>
+
+                </ButtonGroup>
+              </ButtonToolbar>
+            </Col>
+            </th>
+            <th colspan="2">
+            <Col sm="12" className="d-none d-sm-inline-block">
+              <ButtonToolbar className="float-right" aria-label="Toolbar with button groups">
+                <ButtonGroup className="mr-3" aria-label="First group">
+                <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(1)} active={this.state.radioSelected === 1}>Day</Button>
+                <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(2)} active={this.state.radioSelected === 2}>Week</Button>
+                <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(3)} active={this.state.radioSelected === 3}>Month</Button>
+                <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(4)} active={this.state.radioSelected === 4}>Year</Button>
+                </ButtonGroup>
+              </ButtonToolbar>
+            </Col>
+            </th>
+          </tr>
+        </thead>
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Particulars</th>
+              <th>Credit</th>
+              <th>Debit</th>
+              <th>Net</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td>Detail</td>
+              <td>Amount</td>
+              <td>Amount</td>
+              <td>Amount</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Detail</td>
+              <td>Amount</td>
+              <td>Amount</td>
+              <td>Amount</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Detail</td>
+              <td>Amount</td>
+              <td>Amount</td>
+              <td>Amount</td>
+            </tr>
+          </tbody>
+        </Table>
+        <h6>Go To Your <a className="no-decoration blue-color" href="/#/transactions/algobulls-transactions">Fundbook</a></h6>
+      </Container>
+    </div>
     );
   }
 }

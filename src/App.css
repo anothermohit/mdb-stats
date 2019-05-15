@@ -28,6 +28,10 @@ p {
   margin: 20px;
 }
 
+.margin-auto {
+  margin: auto;
+}
+
 .hmargin-20 {
   margin-left: 20px;
   margin-right: 20px;
@@ -114,6 +118,27 @@ p {
 
 .bold {
   font-weight: 'bold' !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.textarea {
+  resize: both !important;
+}
+
+.pagination {
+  justify-content: center !important;
+  margin-left: 5px;
+}
+
+.banner-background {
+  background: url(/home-center.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 /* Product */
