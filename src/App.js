@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from './components/header';
-import Content from './components/content';
 import './App.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Login from './components/login';
+import Register from './components/register';
+import Content from './components/content';
+import Features from './components/features';
+import Product from './components/product';
+
+const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
 
 function App() {
   return (
-    <div className="full-width full-height">
-      <Header />
-      <Content />
-    </div>
+    <Router>
+      <div className="full-width full-height">
+        <Header />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/features" component={Features} />
+        <Route exact path="/product" component={Product} />
+        <Route exact path="/" component={Content} />
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
+/*
+<div className="full-width full-height">
+  <Header />
+  <Content />
+</div>
+*/

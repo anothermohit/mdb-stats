@@ -20,16 +20,24 @@ import {
   Row,
   Table,
 } from 'reactstrap';
-import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
-import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
+//import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
+//import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
 
-const Widget03 = lazy(() => import('../../views/Widgets/Widget03'));
+const Widget03 = lazy(() => import('./Widget03'));
 
+/*
 const brandPrimary = getStyle('--primary')
-const brandSuccess = getStyle('--success')
+const brandPrimary = getStyle('--success')
 const brandInfo = getStyle('--info')
 const brandWarning = getStyle('--warning')
 const brandDanger = getStyle('--danger')
+*/
+const brandSuccess = 'blue';
+const brandPrimary = 'white';
+const brandSecondary = 'blue';
+const brandInfo = 'green';
+const brandWarning = 'yellow';
+const brandDanger = 'red';
 
 // Card Chart 1
 const cardChartData1 = {
@@ -46,8 +54,8 @@ const cardChartData1 = {
 
 const cardChartOpts1 = {
   tooltips: {
-    enabled: false,
-    custom: CustomTooltips
+    enabled: true,
+    //custom: CustomTooltips
   },
   maintainAspectRatio: false,
   legend: {
@@ -104,8 +112,8 @@ const cardChartData2 = {
 
 const cardChartOpts2 = {
   tooltips: {
-    enabled: false,
-    custom: CustomTooltips
+    enabled: true,
+    //custom: CustomTooltips
   },
   maintainAspectRatio: false,
   legend: {
@@ -162,8 +170,8 @@ const cardChartData3 = {
 
 const cardChartOpts3 = {
   tooltips: {
-    enabled: false,
-    custom: CustomTooltips
+    enabled: true,
+    //custom: CustomTooltips
   },
   maintainAspectRatio: false,
   legend: {
@@ -206,8 +214,8 @@ const cardChartData4 = {
 
 const cardChartOpts4 = {
   tooltips: {
-    enabled: false,
-    custom: CustomTooltips
+    enabled: true,
+    //custom: CustomTooltips
   },
   maintainAspectRatio: false,
   legend: {
@@ -254,8 +262,8 @@ const makeSocialBoxData = (dataSetNo) => {
 
 const socialChartOpts = {
   tooltips: {
-    enabled: false,
-    custom: CustomTooltips
+    enabled: true,
+    //custom: CustomTooltips
   },
   responsive: true,
   maintainAspectRatio: false,
@@ -328,8 +336,8 @@ const makeSparkLineData = (dataSetNo, variant) => {
 
 const sparklineChartOpts = {
   tooltips: {
-    enabled: false,
-    custom: CustomTooltips
+    enabled: true,
+    //custom: CustomTooltips
   },
   responsive: true,
   maintainAspectRatio: true,
@@ -382,7 +390,6 @@ const mainChart = {
   datasets: [
     {
       label: 'My First dataset',
-      backgroundColor: hexToRgba(brandInfo, 10),
       borderColor: brandInfo,
       pointHoverBackgroundColor: '#fff',
       borderWidth: 2,
@@ -410,8 +417,8 @@ const mainChart = {
 
 const mainChartOpts = {
   tooltips: {
-    enabled: false,
-    custom: CustomTooltips,
+    enabled: true,
+    //custom: CustomTooltips,
     intersect: true,
     mode: 'index',
     position: 'nearest',

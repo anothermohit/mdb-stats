@@ -5,6 +5,8 @@ import Listings from './listings';
 
 export default class Content extends React.Component {
   render() {
+
+    console.log('content')
     return (
       <div className="full-width full-height">
         <div style={{backgroundImage: 'url("/home-center.jpg")', paddingTop: 60}}>
