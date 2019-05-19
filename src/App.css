@@ -75,7 +75,7 @@ p {
 }
 
 .white-color {
-  color: white;
+  color: white !important;
 }
 
 .blue-color {

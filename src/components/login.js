@@ -36,7 +36,7 @@ class Login extends Component {
                         <Row>
                           <Col xs="6">
                             <Link to="/">
-                              <Button color="primary" className="px-4">Login</Button>
+                              <Button className="blue-background white-color no-border">Login</Button>
                             </Link>
                           </Col>
                           <Col xs="6" className="text-right">
