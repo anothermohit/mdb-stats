@@ -4,6 +4,7 @@ import { Badge, Button, Card, CardBody, CardGroup, Col, Container, Form, Input, 
 import ProductCard from './productCard.js';
 import Tables from './tables.js';
 import DashboardCurve from './dashboard-curve.js';
+import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 
 class Product extends Component {
   constructor(props) {
@@ -24,6 +25,17 @@ class Product extends Component {
 
   writing() {
     this.setState({writing: true})
+  }
+
+  loadMore() {
+      let reviews = this.state.reviews;
+      let newReviews = [
+        'Adding review number ' + (reviews.length + 1),
+        'And this is of course, number ' + (reviews.length + 2),
+        'Who am I?'
+      ]
+      reviews = reviews.concat(newReviews);
+      this.setState({reviews})
   }
 
   addReview() {
@@ -79,7 +91,7 @@ class Product extends Component {
               <Col md="8">
                 <div className="textarea-container">
                   <div style={{height: 80}}>
-                    <Card>
+                    <Card className="shadow-sm bg-white rounded">
                       <Row>
                       <Col xs="1">
                         <img src={'/sample/avatar.png'} className="avatar" width={40} style={{margin: 10}} alt="admin@bootstrapmaster.com" />
@@ -90,7 +102,7 @@ class Product extends Component {
                       </Row>
                       <Row>
                         <Col md="12">
-                          <Input style={{height: 70}} type="textarea" name="text" className="textarea" id="submit-review" onClick={this.writing.bind(this)} placeholder="Write a review ..."/>
+                          <Input style={{height: 70}} type="textarea" name="text" className="textarea shadow-sm bg-white rounded" id="submit-review" onClick={this.writing.bind(this)} placeholder="Write a review ..."/>
                         </Col>
                       </Row>
                     </Card>
@@ -108,15 +120,16 @@ class Product extends Component {
               <Col md="8">
                 {this.state.reviews.map((review) => (
                   <div>
-                    <Card style={{marginTop: 20}}>
+                    <Card className="shadow-sm bg-white rounded" style={{marginTop: 20}}>
                       <Row>
-                      <Col xs="1">
-                        <img src={'/sample/avatar.png'} className="avatar" width={40} style={{margin: 10}} alt="admin@bootstrapmaster.com" />
-                      </Col>
-                      <Col xs="3">
-                        <p style={{marginTop: 16, marginLeft: 0, fontWeight: 'bold'}}>Sample User</p>
-                      </Col>
+                        <Col xs="1">
+                          <img src={'/sample/avatar.png'} className="avatar" width={40} style={{margin: 10}} alt="admin@bootstrapmaster.com" />
+                        </Col>
+                        <Col xs="3">
+                          <p style={{marginTop: 16, marginLeft: 0, fontWeight: 'bold'}}>Sample User</p>
+                        </Col>
                       </Row>
+                      <div className="divider"></div>
                       <p className="margin-10">{review}</p>
                     </Card>
                     <Button className="submit float-right" style={{marginTop: 10, fontSize: 12}}>Helpful</Button>
@@ -126,6 +139,7 @@ class Product extends Component {
                 ))}
               </Col>
             </Row>
+            <Button onClick={this.loadMore.bind(this)} className="center-align margin-auto no-border grey-background" style={{width: 150, color: 'white', marginTop: 60, marginBottom: 100}} block>Load More</Button>
           </Container>
         </div>
       </div>

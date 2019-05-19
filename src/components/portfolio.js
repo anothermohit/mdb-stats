@@ -1,12 +1,11 @@
 import React from 'react';
 import { Card, CardBody, CardHeader, Col, Dropdown, DropdownItem, Container, DropdownMenu, DropdownToggle, Row, UncontrolledDropdown, Table, Forms, FormGroup, Input, InputGroup, Label, Button } from 'reactstrap';
-import { AppSwitch } from '@coreui/react';
 import ProductCard from './productCard';
 
 class Portfolio extends React.Component {
   render() {
     return(
-      <div className="app align-items-center light-blue-background">
+      <div className="app align-items-center white-background">
         <Container style={{paddingTop: 120, paddingBottom: 80}}>
         <h5 className="blue-color">Customer Portfolio</h5>
         <br />

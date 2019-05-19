@@ -80,7 +80,7 @@ onRadioBtnClick(radioSelected) {
 
   render() {
     return (
-      <div className="light-blue-background">
+      <div className="white-background">
         <Container className="animated fadeIn">
           <h2>Your Dashboard</h2>
           <br />

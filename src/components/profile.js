@@ -49,7 +49,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <div style={{paddingTop: 120, paddingBottom: 80}} className="animated fadeIn light-blue-background">
+      <div style={{paddingTop: 120, paddingBottom: 80}} className="animated fadeIn white-background">
         <Container className="justify-center-align">
           <div style={{maxWidth: 600}} className="margin-auto">
             <Card>

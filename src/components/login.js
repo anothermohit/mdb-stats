@@ -7,12 +7,11 @@ class Login extends Component {
 
     console.log('login')
     return (
-      <div className="full-width full-height light-blue-background">
-        <div className="app flex-row align-items-center" style={{paddingTop: 200}}>
+      <div className="full-width full-height white-background">
+        <div className="app flex-row align-items-center" style={{paddingTop: 200, paddingBottom: 200}}>
           <Container>
             <Row className="justify-content-center">
-              <Col md="8">
-                <CardGroup>
+              <Col md="6">
                   <Card className="p-4">
                     <CardBody>
                       <Form>
@@ -47,8 +46,10 @@ class Login extends Component {
                       </Form>
                     </CardBody>
                   </Card>
-                  <Card className="text-white bg-primary py-5 d-md-down-none" style={{ width: '44%' }}>
-                    <CardBody className="text-center">
+              </Col>
+              <Col md="6">
+                  <Card className="text-white bg-primary py-5 d-md-down-none">
+                    <CardBody className="text-center" style={{height: 240}}>
                       <div>
                         <h2>Sign up</h2>
                         <p>If you do not have an account, please sign up!</p>
@@ -58,7 +59,6 @@ class Login extends Component {
                       </div>
                     </CardBody>
                   </Card>
-                </CardGroup>
               </Col>
             </Row>
           </Container>

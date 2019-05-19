@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 class Register extends Component {
   render() {
     return (
-      <div className="full-width full-height light-blue-background">
-        <div className="app flex-row align-items-center light-blue-background" style={{paddingTop: 200}}>
+      <div className="full-width full-height white-background">
+        <div className="app flex-row align-items-center" style={{paddingTop: 200, paddingBottom: 200}}>
           <Container>
             <Row className="justify-content-center">
               <Col md="9" lg="7" xl="6">

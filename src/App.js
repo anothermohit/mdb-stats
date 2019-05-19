@@ -37,17 +37,22 @@ function App() {
       <ScrollToTop>
         <div className="full-width full-height">
           <Header />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/features" component={Features} />
-          <Route exact path="/product" component={Product} />
-          <Route exact path="/strategies" component={Home} />
-          <Route exact path="/tradebook" component={Tradebook} />
-          <Route exact path="/fundbook" component={FundBook} />
-          <Route exact path="/portfolio" component={Portfolio} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/" component={Landing} />
+          <div>
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/features" component={Features} />
+            <Route exact path="/product" component={Product} />
+            <Route exact path="/strategies" component={Home} />
+            <Route exact path="/tradebook" component={Tradebook} />
+            <Route exact path="/fundbook" component={FundBook} />
+            <Route exact path="/portfolio" component={Portfolio} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/" component={Landing} />
+          </div>
+          <div style={{minHeight: 200}} className="light-blue-background">
+            <Footer />
+          </div>
         </div>
       </ScrollToTop>
     </Router>

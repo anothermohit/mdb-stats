@@ -4,7 +4,7 @@ import { Badge, Card, CardBody, CardHeader, Col, Pagination, PaginationItem, Pag
 class Tables extends Component {
   render() {
     return (
-      <div className="animated fadeIn">
+      <div className="animated fadeIn shadow-sm mb-5 bg-white rounded">
         <Row>
           <Col>
             <Card className="height-300">

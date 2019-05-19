@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardHeader, Badge, Button, CardFooter, Container, Col, Fade, Form, FormGroup, Input, InputGroup, Table, InputGroupText, Label, Row } from 'reactstrap';
-import { AppSwitch } from '@coreui/react';
 
 class TradeBook extends Component {
 
@@ -9,7 +8,7 @@ class TradeBook extends Component {
   }
   render() {
     return (
-      <div className="app align-items-center light-blue-background">
+      <div className="app align-items-center white-background">
         <Container style={{paddingTop: 120, paddingBottom: 80}}>
         <h5 className="blue-color center-align">Your TradeBook</h5>
         <Col xs="3" className="margin-auto">

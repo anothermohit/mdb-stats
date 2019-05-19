@@ -20,24 +20,46 @@ import {
   Row,
   Table,
 } from 'reactstrap';
-//import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
-//import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
 
-const Widget03 = lazy(() => import('./Widget03'));
+var hexToRgba = function hexToRgba(color, opacity) {
+  if (opacity === void 0) {
+    opacity = 100;
+  }
 
-/*
-const brandPrimary = getStyle('--primary')
-const brandPrimary = getStyle('--success')
-const brandInfo = getStyle('--info')
-const brandWarning = getStyle('--warning')
-const brandDanger = getStyle('--danger')
-*/
-const brandSuccess = 'blue';
-const brandPrimary = 'white';
-const brandSecondary = 'blue';
-const brandInfo = 'green';
-const brandWarning = 'yellow';
-const brandDanger = 'red';
+  if (typeof color === 'undefined') {
+    throw new Error('Hex color is not defined');
+  }
+
+  var hex = color.match(/^#(?:[0-9a-f]{3}){1,2}$/i);
+
+  if (!hex) {
+    throw new Error(color + " is not a valid hex color");
+  }
+
+  var r;
+  var g;
+  var b;
+
+  if (color.length === 7) {
+    r = parseInt(color.substring(1, 3), 16);
+    g = parseInt(color.substring(3, 5), 16);
+    b = parseInt(color.substring(5, 7), 16);
+  } else {
+    r = parseInt(color.substring(1, 2), 16);
+    g = parseInt(color.substring(2, 3), 16);
+    b = parseInt(color.substring(3, 5), 16);
+  }
+
+  return "rgba(" + r + ", " + g + ", " + b + ", " + opacity / 100 + ")";
+};
+
+const Widget03 = lazy(() => import('../utilities/Widget03'));
+
+const brandPrimary = '#4F6DF5';
+const brandSuccess = '#4dbd74';
+const brandInfo = '#63c2de';
+const brandWarning = '#ffc107';
+const brandDanger = '#f86c6b';
 
 // Card Chart 1
 const cardChartData1 = {
@@ -55,7 +77,7 @@ const cardChartData1 = {
 const cardChartOpts1 = {
   tooltips: {
     enabled: true,
-    //custom: CustomTooltips
+    custom: null
   },
   maintainAspectRatio: false,
   legend: {
@@ -113,7 +135,7 @@ const cardChartData2 = {
 const cardChartOpts2 = {
   tooltips: {
     enabled: true,
-    //custom: CustomTooltips
+    custom: null
   },
   maintainAspectRatio: false,
   legend: {
@@ -171,7 +193,7 @@ const cardChartData3 = {
 const cardChartOpts3 = {
   tooltips: {
     enabled: true,
-    //custom: CustomTooltips
+    custom: null
   },
   maintainAspectRatio: false,
   legend: {
@@ -215,7 +237,7 @@ const cardChartData4 = {
 const cardChartOpts4 = {
   tooltips: {
     enabled: true,
-    //custom: CustomTooltips
+    custom: null
   },
   maintainAspectRatio: false,
   legend: {
@@ -263,7 +285,7 @@ const makeSocialBoxData = (dataSetNo) => {
 const socialChartOpts = {
   tooltips: {
     enabled: true,
-    //custom: CustomTooltips
+    custom: null
   },
   responsive: true,
   maintainAspectRatio: false,
@@ -337,7 +359,7 @@ const makeSparkLineData = (dataSetNo, variant) => {
 const sparklineChartOpts = {
   tooltips: {
     enabled: true,
-    //custom: CustomTooltips
+    custom: null
   },
   responsive: true,
   maintainAspectRatio: true,
@@ -390,6 +412,7 @@ const mainChart = {
   datasets: [
     {
       label: 'My First dataset',
+      backgroundColor: hexToRgba(brandInfo, 10),
       borderColor: brandInfo,
       pointHoverBackgroundColor: '#fff',
       borderWidth: 2,
@@ -418,7 +441,7 @@ const mainChart = {
 const mainChartOpts = {
   tooltips: {
     enabled: true,
-    //custom: CustomTooltips,
+    custom: null,
     intersect: true,
     mode: 'index',
     position: 'nearest',
@@ -459,7 +482,7 @@ const mainChartOpts = {
   },
 };
 
-class DashboardCurve extends Component {
+class Dashboard extends Component {
   constructor(props) {
     super(props);
 
@@ -489,7 +512,7 @@ class DashboardCurve extends Component {
   render() {
 
     return (
-      <div className="animated fadeIn">
+      <div className="animated fadeIn shadow-sm bg-white rounded">
         <Row>
           <Col>
             <Card>
@@ -522,4 +545,4 @@ class DashboardCurve extends Component {
   }
 }
 
-export default DashboardCurve;
+export default Dashboard;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardHeader, Col, Dropdown, Container, DropdownItem, DropdownMenu, DropdownToggle, Row, UncontrolledDropdown, Table, Forms, FormGroup, Input, InputGroup, Label, Button } from 'reactstrap';
-import { AppSwitch } from '@coreui/react';
 
 class Fundbook extends Component {
   constructor(props) {
@@ -23,7 +22,7 @@ class Fundbook extends Component {
 
   render() {
     return (
-      <div className="app align-items-center light-blue-background">
+      <div className="app align-items-center white-background">
         <Container style={{paddingTop: 120, paddingBottom: 80}}>
           <h5 className="blue-color center-align">Your FundBook</h5>
           <br />
