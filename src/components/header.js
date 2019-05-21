@@ -40,12 +40,7 @@ export default class Header extends React.Component {
             </DropdownToggle>
             <DropdownMenu right className="blue-color" style={{position: 'absolute', top: 48, right: 0}}>
               <Link to="/dashboard" className="no-decoration black-color">
-                <DropdownItem className="blue-color whiteimport { Typeahead } from 'reactstrap-typeahead';
-
-                function range(start, end) {
-                    return (new Array(end - start + 1)).fill(undefined).map((_, i) => i + start);
-                }
-                -background" >
+                <DropdownItem>
                   Dashboard
                 </DropdownItem>
               </Link>

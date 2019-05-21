@@ -1,13 +1,12 @@
 import React from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import ProductCard from './productCard';
-import { Pagination, PaginationItem, PaginationLink, Button, ButtonGroup } from 'reactstrap';
+import { Pagination, PaginationItem, PaginationLink, Button, ButtonGroup, Progress } from 'reactstrap';
 import { Typeahead } from 'reactstrap-typeahead';
 
 function resize() {
   console.log(window.innerWidth);
 }
-
 
 export default class Listings extends React.Component {
     constructor (props) {
@@ -19,9 +18,15 @@ export default class Listings extends React.Component {
       showFilters = true;
     else
       showFilters = false;
-    this.state = { cSelected: [], showFilters };
+    this.state = { cSelected: [], showFilters, loading: false };
 
     this.onCheckboxBtnClick = this.onCheckboxBtnClick.bind(this);
+  }
+
+  componentWillMount() {
+    setTimeout(function() {
+      console.log('waiting')
+    }, 1000)
   }
 
   componentDidMount() {
@@ -46,7 +51,8 @@ export default class Listings extends React.Component {
     } else {
       this.state.cSelected.splice(index, 1);
     }
-    this.setState({ cSelected: [...this.state.cSelected] });
+    this.setState({ cSelected: [...this.state.cSelected], loading: true });
+    this.forceUpdate()
   }
 
   toggleFilters() {
@@ -58,6 +64,7 @@ export default class Listings extends React.Component {
   }
 
   render() {
+    console.log('render')
     return (
       <div className="full-width">
         <div className="white-background">
@@ -108,7 +115,8 @@ export default class Listings extends React.Component {
                       <p className="padding-10 margin-0 black-color font-16 font-weight-600">Volumne</p>
                       <p className="padding-10 margin-0 grey-color font-12 font-weight-100"><Button style={{marginRight: 5, marginTop: -2}} color="primary" size="sm" onClick={() => this.onCheckboxBtnClick(21)} active={this.state.cSelected.includes(21)}></Button>AB Volume</p>
 
-                      <i onClick={this.clearAll.bind(this)} style={{marginLeft: 15}} className="cursor-pointer fa fa-times font-12 grey-color show-on-mobile"><span style={{marginLeft: 10}} className="font-family">Clear All</span></i>
+                      <i onClick={this.clearAll.bind(this)} style={{marginLeft: 15}} className="cursor-pointer fa fa-times font-12 grey-color show-on-mobile"></i>
+                      <span style={{marginLeft: 10, fontSize: 12}} className="font-family grey-color">Clear All</span>
 
                       <div className="divider"></div>
                     </div>

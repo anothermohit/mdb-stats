@@ -23,7 +23,7 @@ class Portfolio extends React.Component {
            </thead>
            <tbody>
              <tr>
-               <th scope="row"><Col xs="16" sm="12" md="4">
+               <th scope="row"><Col md="12">
                <ProductCard />
                </Col></th>
                <td>Detail</td>
@@ -32,7 +32,7 @@ class Portfolio extends React.Component {
                <td>Amount</td>
              </tr>
              <tr>
-               <th scope="row"><Col xs="16" sm="12" md="4">
+               <th scope="row"><Col md="12">
                <ProductCard />
                </Col></th>
                <td>Detail</td>
@@ -41,7 +41,7 @@ class Portfolio extends React.Component {
                <td>Amount</td>
              </tr>
              <tr>
-               <th scope="row"><Col xs="16" sm="12" md="4">
+               <th scope="row"><Col md="12">
                <ProductCard />
                </Col></th>
                <td>Detail</td>

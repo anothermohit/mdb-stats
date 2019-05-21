@@ -12,38 +12,36 @@ class Product extends Component {
 
     this.state = {
       newReview: '',
-      writing: false,
       reviews: [
-        'This is the first review',
-        'This is second and the biggest review. There is some extra text here which lets us see a big review. You do not need to read all this text as it is absolutely non-sense but since I have spent time writing it, it is only fair that you are reading it still. Thanks for the attention!',
-        'And this is last'
+        {title: 'Title 1', text:'This is the first review'},
+        {title: 'Title 2', text: 'This is second and the biggest review. There is some extra text here which lets us see a big review. You do not need to read all this text as it is absolutely non-sense but since I have spent time writing it, it is only fair that you are reading it still. Thanks for the attention!'},
+        {title: 'Title 3', text: 'And this is last'}
       ]
     }
   }
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
-  writing() {
-    this.setState({writing: true})
-  }
-
   loadMore() {
       let reviews = this.state.reviews;
       let newReviews = [
-        'Adding review number ' + (reviews.length + 1),
-        'And this is of course, number ' + (reviews.length + 2),
-        'Who am I?'
+        {title: 'Title ' + (reviews.length + 1), text: 'Adding review number ' + (reviews.length + 1)},
+        {title: 'Title ' + (reviews.length + 2), text: 'And this is of course, number ' + (reviews.length + 2)},
+        {title: 'Title X', text: 'Who am I?'}
       ]
       reviews = reviews.concat(newReviews);
       this.setState({reviews})
   }
 
   addReview() {
-    let element = document.getElementById('submit-review');
+    let title = document.getElementById('title').value;
+    let text = document.getElementById('text').value;
     let reviews = this.state.reviews;
-    reviews.unshift(element.value);
+    reviews.unshift({title, text});
     this.setState({reviews});
-    element.value = ''
+
+    document.getElementById('title').value = '';
+    document.getElementById('text').value = '';
   }
 
   render() {
@@ -102,12 +100,13 @@ class Product extends Component {
                       </Row>
                       <Row>
                         <Col md="12">
-                          <Input style={{height: 70}} type="textarea" name="text" className="textarea shadow-sm bg-white rounded" id="submit-review" onClick={this.writing.bind(this)} placeholder="Write a review ..."/>
+                          <Input style={{height: 40}} type="textarea" name="title" className="textarea font-16 font-weight-600" id="title" placeholder="Title..."/>
+                          <Input style={{height: 80}} type="textarea" name="text" className="textarea" id="text" placeholder="Write a review ..."/>
                         </Col>
                       </Row>
                     </Card>
                   </div>
-                    <Button onClick={this.addReview.bind(this)} className="float-right no-border" style={{width: 100, backgroundColor:'#4F6DF5', color: 'white', marginTop: 60}} block>Submit</Button>
+                    <Button onClick={this.addReview.bind(this)} className="float-right no-border" style={{width: 100, backgroundColor:'#4F6DF5', color: 'white', marginTop: 100}} block>Submit</Button>
                 </div>
               </Col>
             </Row>
@@ -130,7 +129,8 @@ class Product extends Component {
                         </Col>
                       </Row>
                       <div className="divider"></div>
-                      <p className="margin-10">{review}</p>
+                      <h5 className="margin-10">{review.title}</h5>
+                      <p className="margin-10">{review.text}</p>
                     </Card>
                     <Button className="submit float-right" style={{marginTop: 10, fontSize: 12}}>Helpful</Button>
                     <br />
