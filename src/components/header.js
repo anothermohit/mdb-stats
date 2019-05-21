@@ -3,6 +3,7 @@ import {Container, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'r
 import { Link } from 'react-router-dom';
 import 'reactstrap-typeahead/css/Typeahead.css';
 import { Typeahead } from 'reactstrap-typeahead';
+import * as ls from "local-storage";
 
 function range(start, end) {
     return (new Array(end - start + 1)).fill(undefined).map((_, i) => i + start);
@@ -69,11 +70,13 @@ export default class Header extends React.Component {
                   Your Tradebook
                 </DropdownItem>
               </Link>
+              {ls.get('user') == 'partner' ?
               <Link to="/users" className="no-decoration black-color">
                 <DropdownItem>
-                  Users
+                  Customers
                 </DropdownItem>
               </Link>
+              : null}
               <Link to="/login" className="no-decoration black-color">
                 <DropdownItem>
                   Login

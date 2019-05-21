@@ -1,11 +1,39 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import * as ls from "local-storage";
+import swal from 'sweetalert';
 
 class Login extends Component {
-  render() {
+  constructor(props) {
+    super(props);
 
-    console.log('login')
+    this.state = {
+      username: '',
+      password: ''
+    }
+  }
+
+  login() {
+    if (this.state.username == 'customer' && this.state.password == 'password1') {
+      ls.set('user', 'customer');
+      window.location.href = '/';
+    } else if (this.state.username == 'partner' && this.state.password == 'password2') {
+      ls.set('user', 'partner');
+      window.location.href = '/';
+    } else
+      swal('Unauthorized', 'Invalid Username or password', 'error')
+  }
+
+  onChange(value, field) {
+    if (field == 'username')
+      this.setState({username: value})
+    else if (field == 'password')
+      this.setState({password: value})
+    else return;
+  }
+
+  render() {
     return (
       <div className="full-width full-height white-background">
         <div className="app flex-row align-items-center" style={{paddingTop: 200, paddingBottom: 200}}>
@@ -23,7 +51,7 @@ class Login extends Component {
                               <i className="icon-user"></i>
                             </InputGroupText>
                           </InputGroupAddon>
-                          <Input type="text" placeholder="Username" autoComplete="username" />
+                          <Input onChange={(e) => this.onChange(`${e.target.value}`, 'username')} id="username" type="text" placeholder="Username" autoComplete="username" />
                         </InputGroup>
                         <InputGroup className="mb-4">
                           <InputGroupAddon addonType="prepend">
@@ -31,13 +59,11 @@ class Login extends Component {
                               <i className="icon-lock"></i>
                             </InputGroupText>
                           </InputGroupAddon>
-                          <Input type="password" placeholder="Password" autoComplete="current-password" />
+                          <Input onChange={(e) => this.onChange(`${e.target.value}`, 'password')} id="password" type="password" placeholder="Password" autoComplete="current-password" />
                         </InputGroup>
                         <Row>
                           <Col xs="6">
-                            <Link to="/">
-                              <Button className="blue-background white-color no-border">Login</Button>
-                            </Link>
+                            <Button onClick={this.login.bind(this)} className="blue-background white-color no-border">Login</Button>
                           </Col>
                           <Col xs="6" className="text-right">
                             <Button color="link" className="px-0">Forgot password?</Button>
@@ -48,13 +74,13 @@ class Login extends Component {
                   </Card>
               </Col>
               <Col md="6">
-                  <Card className="text-white bg-primary py-5 d-md-down-none">
+                  <Card className="text-white blue-background py-5 d-md-down-none">
                     <CardBody className="text-center" style={{height: 240}}>
                       <div>
                         <h2>Sign up</h2>
                         <p>If you do not have an account, please sign up!</p>
                         <Link to="/register">
-                          <Button color="primary" className="mt-3" active tabIndex={-1}>Register Now!</Button>
+                          <Button className="mt-3 white-background" active tabIndex={-1}>Register Now!</Button>
                         </Link>
                       </div>
                     </CardBody>

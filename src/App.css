@@ -401,3 +401,15 @@ input:checked + .slider:before {
 .active {
   background-color: #4F6DF5 !important;
 }
+
+.swal-footer {
+  text-align: center;
+}
+
+.swal-button--confirm {
+    background: #4F6DF5;
+}
+
+.swal-button--confirm:active {
+    background: #4F6DF5;
+}

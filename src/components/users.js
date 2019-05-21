@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Badge, Card, CardBody, CardHeader, Col, Row, Table, Container } from 'reactstrap';
+import * as ls from "local-storage";
+import swal from 'sweetalert';
 
 import usersData from '../utilities/usersData'
 
@@ -28,9 +30,14 @@ function UserRow(props) {
 }
 
 class Users extends Component {
+  componentWillMount() {
+    if (ls.get('user' != 'partner')) {
+      swal('Unauthorized', 'Sorry, you are not authorized for this page');
+      window.location.href = '/'
+    }
+  }
 
   render() {
-
     const userList = usersData.filter((user) => user.id < 10)
 
     return (
