@@ -54,6 +54,11 @@ export default class Header extends React.Component {
                   Your Portfolio
                 </DropdownItem>
               </Link>
+              <Link to="/broking-account" className="no-decoration black-color">
+                <DropdownItem>
+                  Broking Account
+                </DropdownItem>
+              </Link>
               <Link to="/fundbook" className="no-decoration black-color">
                 <DropdownItem>
                   Your Fundbook

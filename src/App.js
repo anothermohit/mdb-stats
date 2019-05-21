@@ -12,6 +12,7 @@ import Product from './components/product';
 import Tradebook from './components/tradebook';
 import FundBook from './components/fundbook';
 import Portfolio from './components/portfolio';
+import BrokingAccount from './components/brokingAccount';
 import Profile from './components/profile';
 import Dashboard from './components/dashboard';
 import Users from './components/users';
@@ -48,6 +49,7 @@ function App() {
             <Route exact path="/tradebook" component={Tradebook} />
             <Route exact path="/fundbook" component={FundBook} />
             <Route exact path="/portfolio" component={Portfolio} />
+            <Route exact path="/broking-account" component={BrokingAccount} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/users" component={Users} />
