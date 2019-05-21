@@ -14,6 +14,8 @@ import FundBook from './components/fundbook';
 import Portfolio from './components/portfolio';
 import Profile from './components/profile';
 import Dashboard from './components/dashboard';
+import Users from './components/users';
+import User from './components/user';
 
 const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
 
@@ -48,6 +50,8 @@ function App() {
             <Route exact path="/portfolio" component={Portfolio} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/users" component={Users} />
+            <Route exact path="/users/:id" component={User} />
             <Route exact path="/" component={Landing} />
           </div>
           <div style={{minHeight: 200}} className="light-blue-background">

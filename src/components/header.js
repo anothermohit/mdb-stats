@@ -64,6 +64,11 @@ export default class Header extends React.Component {
                   Your Tradebook
                 </DropdownItem>
               </Link>
+              <Link to="/users" className="no-decoration black-color">
+                <DropdownItem>
+                  Users
+                </DropdownItem>
+              </Link>
               <Link to="/login" className="no-decoration black-color">
                 <DropdownItem>
                   Login
