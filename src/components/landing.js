@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {Container, Row, Col, Card, Button} from 'reactstrap';
 import Features from './features';
+import ProductCard from './productCard';
 
 export default class Landing extends React.Component {
   render() {
@@ -47,8 +48,26 @@ export default class Landing extends React.Component {
             <Features />
           </div>
 
+          <div className="divider">
+          </div>
+
+          <Container className="white-background">
+            <h3 style={{paddingTop: 40}} className="center-align">Top Strategies</h3>
+            <Row>
+              <Col sm="12" md="4">
+                <ProductCard />
+              </Col>
+              <Col sm="12" md="4">
+                <ProductCard />
+              </Col>
+              <Col sm="12" md="4">
+                <ProductCard />
+              </Col>
+            </Row>
+          </Container>
+
           <Link to="/strategies">
-            <Button className="no-border margin-auto" style={{width: 200, backgroundColor:'#4F6DF5', color: 'white', marginBottom: 20}} block>Explore Strategies</Button>
+            <Button className="no-border margin-auto" style={{width: 200, backgroundColor:'#4F6DF5', color: 'white', marginBottom: 20}} block>Explore More</Button>
           </Link>
         </div>
     )

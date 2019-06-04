@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Install
+
+In the project directory, you can run:
+
+### `npm install`
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -62,6 +68,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ad
 ### Deployment
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Blog Post: https://medium.com/ovrsea/deploy-automatically-a-react-app-on-amazon-s3-iam-within-minutes-da6cb0096d55
 
 ### `npm run build` fails to minify
 
