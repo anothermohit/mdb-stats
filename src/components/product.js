@@ -5,12 +5,14 @@ import ProductCard from './productCard.js';
 import Tables from './tables.js';
 import DashboardCurve from './dashboard-curve.js';
 import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
+import $ from 'jquery';
 
 class Product extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      detailedStrategy: null,
       newReview: '',
       reviews: [
         {title: 'Title 1', text:'This is the first review'},
@@ -18,6 +20,10 @@ class Product extends Component {
         {title: 'Title 3', text: 'And this is last'}
       ]
     }
+  }
+
+  componentWillMount() {
+    this.getDetailedStrategy(1);
   }
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
@@ -31,6 +37,30 @@ class Product extends Component {
       ]
       reviews = reviews.concat(newReviews);
       this.setState({reviews})
+  }
+
+  getDetailedStrategy(id) {
+    var self = this;
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://test.algobulls.com/v1/strategydetailed/" + id,
+      "method": "GET",
+      "headers": {
+        "Accept": "application/json",
+        "X-CSRFToken": "nzNxMdJWQmQFaPdixjIfnG3FPj8FRUVwVo5TdhMAUi3PgCccqwek2qlNOmFsmOZL",
+        "cache-control": "no-cache",
+        "Postman-Token": "becc9911-3435-4332-bcf8-e25ed1c5f15c",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": 'HEAD, GET, POST, PUT, PATCH, DELETE',
+        "Access-Control-Allow-Headers": 'Origin, Content-Type, X-Auth-Token'
+      }
+    }
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+      self.setState({detailedStrategy : response})
+    });
   }
 
   addReview() {
@@ -51,7 +81,7 @@ class Product extends Component {
           <Container style={{paddingTop: 80}}>
             <Row className="justify-content-center cursor-pointer">
               <Col md="4">
-                <ProductCard />
+                <ProductCard strategy={this.state.detailedStrategy} />
               </Col>
               <Col md="4">
                 <Tables />

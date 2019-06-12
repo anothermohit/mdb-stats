@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Badge, Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row, Tooltip } from 'reactstrap';
+import $ from 'jquery';
 
 class ProductCard extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class ProductCard extends Component {
     this.toggle = this.toggle.bind(this);
     this.toggle2 = this.toggle2.bind(this);
     this.state = {
+      strategy: this.props.strategy || {},
       tooltipOpen: false,
       tooltip2Open: false
     };
@@ -28,8 +30,8 @@ class ProductCard extends Component {
 
   render() {
     return (
-      <Card className="margin-auto shadow-sm bg-white rounded" style={{minHeight: 213, marginBottom: 20}}>
-        <Link to="/product">
+      <Card className="margin-auto shadow-sm bg-white rounded" style={{minHeight: 213, marginBottom: 20, width: 300}}>
+        <Link to={"/product/" + this.state.strategy.id} >
           <Row>
             <Col xs="6">
               <Badge id="status" className="mr-1" style={{backgroundColor:'#4F6DF5', color: 'white', marginTop: 20, marginRight: 0, marginBottom: 0, marginLeft: 20}}>Live</Badge>

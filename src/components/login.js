@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import * as ls from "local-storage";
 import swal from 'sweetalert';
+import $ from 'jquery';
 
 class Login extends Component {
   constructor(props) {
@@ -10,19 +11,21 @@ class Login extends Component {
 
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      token: ''
     }
   }
 
   login() {
-    if (this.state.username == 'customer' && this.state.password == 'password1') {
-      ls.set('user', 'customer');
-      window.location.href = '/';
-    } else if (this.state.username == 'partner' && this.state.password == 'password2') {
-      ls.set('user', 'partner');
-      window.location.href = '/';
-    } else
-      swal('Unauthorized', 'Invalid Username or password', 'error')
+    // +919013468987, testpass
+    $.post("https://test.algobulls.com/v1/login_customer", {username: this.state.username, password: this.state.password} , function(response) {
+      if (response.token) {
+        ls.set('token', response);
+        window.location.href = '/';
+      }
+      else
+        swal('Unauthorized', 'Invalid Username or password', 'error');
+    });
   }
 
   onChange(value, field) {
