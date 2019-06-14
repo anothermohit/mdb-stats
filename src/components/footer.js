@@ -1,5 +1,5 @@
 import React from 'react';
-import {Row, Col, Container, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
+import {Row, Col, Container} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 export default class Header extends React.Component {

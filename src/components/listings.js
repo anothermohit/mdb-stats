@@ -6,10 +6,6 @@ import { Typeahead } from 'reactstrap-typeahead';
 import $ from 'jquery';
 var request = require("request");
 
-function resize() {
-  console.log(window.innerWidth);
-}
-
 export default class Listings extends React.Component {
     constructor (props) {
     super(props);
@@ -21,7 +17,7 @@ export default class Listings extends React.Component {
       showFilters = true;
     else
       showFilters = false;
-    this.state = { cSelected: [], showFilters, loading: false, filters: [], strategies: [], pageCount: 0 };
+    this.state = { cSelected: [], showFilters, loading: false, filters: [], strategies: [], pages: [] };
     this.getFilters = this.getFilters.bind(this);
     this.getStrategies = this.getStrategies.bind(this);
     this.getPageCount = this.getPageCount.bind(this);
@@ -33,9 +29,6 @@ export default class Listings extends React.Component {
     this.getStrategies(1);
     this.getFilters();
     this.getPageCount();
-  }
-
-  componentDidMount() {
     window.onresize = this.setShowFilters.bind(this);
     //this.getFilters();
   }
@@ -59,17 +52,21 @@ export default class Listings extends React.Component {
     }
 
     $.ajax(settings).done(function (response) {
-      console.log(response);
+
       self.setState({filters : response})
     });
   }
 
-  getStrategies(number) {
+  getStrategies(pageNumber) {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
+    console.log(pageNumber)
     var self = this;
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": "https://test.algobulls.com/v1/strategies/" + number,
+      "url": "https://test.algobulls.com/v1/strategies/" + pageNumber,
       "method": "GET",
       "headers": {
         "Accept": "application/json",
@@ -82,13 +79,7 @@ export default class Listings extends React.Component {
       }
     }
 
-    $.ajax(settings).done(function (response) {
-      let strategies = [];
-      for (var i = 0; i < 12; i++) {
-        let strategy = response[0];
-        strategy.id = i;
-        strategies.push(strategy);
-      }
+    $.ajax(settings).done(function (strategies) {
       console.log(strategies);
       self.setState({strategies})
     });
@@ -112,9 +103,15 @@ export default class Listings extends React.Component {
       }
     }
 
-    $.ajax(settings).done(function (response) {
-      console.log(response);
-      self.setState({pageCount : response})
+    $.ajax(settings).done(function (total) {
+      let pages = [];
+      for (var i = 1; i <= total; i++)
+        pages.push(i);
+
+      let e = document.getElementById(1);
+
+      if (e) e.className += ' active';
+      self.setState({pages})
     });
   }
 
@@ -129,16 +126,18 @@ export default class Listings extends React.Component {
     this.setState({showFilters});
   }
 
-  onCheckboxBtnClick(selected, j) {
-    console.log(selected, j);
-    const index = this.state.cSelected.indexOf(selected);
+  onCheckboxBtnClick(i, j) {
+    console.log(i, j)
+    const index = this.state.cSelected.indexOf(i.toString() + j.toString());
     if (index < 0) {
-      this.state.cSelected.push(selected);
+      this.state.cSelected.push(i.toString() + j.toString());
     } else {
       this.state.cSelected.splice(index, 1);
     }
+
+    console.log(this.state.cSelected)
     this.setState({ cSelected: [...this.state.cSelected], loading: true });
-    this.forceUpdate()
+    this.getStrategies(1);
   }
 
   toggleFilters() {
@@ -164,19 +163,25 @@ export default class Listings extends React.Component {
     return pages;
   }
 
+  updatePage(i) {
+    let e = document.getElementById(i);
+    e.className += ' active';
+    this.getStrategies(i);
+  }
+
   render() {
     if (this.state.filters) {
-      console.log('render', this.state.filters)
+
       let filters_list = this.state.filters ? this.state.filters : "";
       if (Array.isArray(filters_list) && filters_list.length) {
         for (let i=0 ; i < filters_list.length ; i++) {
           let filter_title = Object.keys(filters_list[i])[0];
           let filter_values = Object.values(filters_list[i])[0];
-          console.log(filter_title, filter_values);
+
         }
       }
       this.state.filters.map(function(e) {
-        console.log(e);
+
       });
     }
 
@@ -185,7 +190,7 @@ export default class Listings extends React.Component {
         <div className="white-background">
             <Container style={{paddingTop: 80}}>
               <div className="d-sm-block d-md-none bottom-margin-20">
-                <div onClick={this.toggleFilters.bind(this)} className="cursor-pointer no-decoration font-16 blue-color white-background no-border" block>
+                <div onClick={this.toggleFilters.bind(this)} className="cursor-pointer no-decoration font-16 blue-color white-background no-border">
                   Filters
                   {this.state.showFilters ? <i className="cursor-pointer fa fa-chevron-down font-16 blue-color show-on-mobile" style={{marginLeft: 10}}></i>
                   : <i className="cursor-pointer fa fa-chevron-up font-16 blue-color show-on-mobile" style={{marginLeft: 10}}></i>}
@@ -194,19 +199,19 @@ export default class Listings extends React.Component {
               <Row>
                 {this.state.showFilters ?
                   <Col style={{marginBottom: 20}} id="filters" md="2" className="">
-                    <div className="white-background ">
+                    <div className="white-background">
                       {
                         this.state.filters.map((e,i) => {
                           return (
-                            <span>
+                            <span key={i}>
                               <p className="padding-10 margin-0 black-color font-16 font-weight-600">
                                 {Object.keys(e)[0]}
                               </p>
                               {
                                 Object.values(e)[0].map((el,j) => {
                                   return (
-                                    <p className="padding-10 margin-0 grey-color font-12 font-weight-100">
-                                      <Button style={{marginRight: 5, marginTop: -2}} color="primary" size="sm" onClick={() => this.onCheckboxBtnClick(i, j)} active={this.state.cSelected.includes(i, j)}>
+                                    <p key={j} className="padding-10 margin-0 grey-color font-12 font-weight-100">
+                                      <Button style={{marginRight: 5, marginTop: -2}} color="primary" size="sm" onClick={() => this.onCheckboxBtnClick(i, j)} active={this.state.cSelected.includes(i.toString() + j.toString())}>
                                       </Button>
                                       {el}
                                     </p>
@@ -228,7 +233,7 @@ export default class Listings extends React.Component {
                   <Row>
                     {this.state.strategies.map((strategy, i) => {
                       return (
-                        <Col sm="12" md="6" lg="4">
+                        <Col key={i} sm="12" md="6" lg="4">
                           <ProductCard strategy={strategy} />
                         </Col>
                       )
@@ -246,41 +251,17 @@ export default class Listings extends React.Component {
                     <PaginationItem>
                       <PaginationLink previous href="#" />
                     </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink href="#">
-                        1
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink href="#">
-                        2
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink href="#">
-                        3
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink href="#">
-                        4
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink href="#">
-                        5
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink href="#">
-                        6
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink href="#">
-                        7
-                      </PaginationLink>
-                    </PaginationItem>
+                    {
+                      this.state.pages.map((i) => {
+                        return (
+                          <PaginationItem>
+                            <PaginationLink id={i} onClick={this.updatePage.bind(this, i)} >
+                              {i}
+                            </PaginationLink>
+                          </PaginationItem>
+                        )
+                      })
+                    }
                     <PaginationItem>
                       <PaginationLink next href="#" />
                     </PaginationItem>

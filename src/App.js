@@ -5,7 +5,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Login from './components/login';
 import Register from './components/register';
-import Home from './components/home';
+import Listings from './components/listings';
 import Landing from './components/landing';
 import Features from './components/features';
 import Product from './components/product';
@@ -35,6 +35,8 @@ class ScrollToTop extends Component {
 ScrollToTop = withRouter(ScrollToTop);
 
 function App() {
+  console.warn = () => {};
+
   return (
     <Router>
       <ScrollToTop>
@@ -44,8 +46,8 @@ function App() {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/features" component={Features} />
-            <Route exact path="/product" component={Product} />
-            <Route exact path="/strategies" component={Home} />
+            <Route exact path="/strategy/:id" component={Product} />
+            <Route exact path="/strategies" component={Listings} />
             <Route exact path="/tradebook" component={Tradebook} />
             <Route exact path="/fundbook" component={FundBook} />
             <Route exact path="/portfolio" component={Portfolio} />

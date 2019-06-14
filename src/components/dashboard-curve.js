@@ -1,24 +1,14 @@
-import React, { Component, lazy, Suspense } from 'react';
-import { Bar, Line } from 'react-chartjs-2';
+import React, { Component } from 'react';
+import { Line } from 'react-chartjs-2';
 import {
-  Badge,
   Button,
-  ButtonDropdown,
   ButtonGroup,
   ButtonToolbar,
   Card,
   CardBody,
-  CardFooter,
-  CardHeader,
   CardTitle,
   Col,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
-  Progress,
   Row,
-  Table,
 } from 'reactstrap';
 
 var hexToRgba = function hexToRgba(color, opacity) {
@@ -53,12 +43,12 @@ var hexToRgba = function hexToRgba(color, opacity) {
   return "rgba(" + r + ", " + g + ", " + b + ", " + opacity / 100 + ")";
 };
 
-const Widget03 = lazy(() => import('../utilities/Widget03'));
+//const Widget03 = lazy(() => import('../utilities/Widget03'));
 
 const brandPrimary = '#4F6DF5';
 const brandSuccess = '#4dbd74';
 const brandInfo = '#63c2de';
-const brandWarning = '#ffc107';
+//const brandWarning = '#ffc107';
 const brandDanger = '#f86c6b';
 
 // Card Chart 1

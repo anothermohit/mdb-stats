@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row, Tooltip } from 'reactstrap';
+import { Badge, Button, Card, Col, Row, Tooltip } from 'reactstrap';
 import $ from 'jquery';
 
 class ProductCard extends Component {
@@ -16,6 +16,12 @@ class ProductCard extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.strategy != this.props.strategy) {
+      this.setState({strategy: nextProps.strategy});
+    }
+  }
+
   toggle() {
     this.setState({
       tooltipOpen: !this.state.tooltipOpen
@@ -29,15 +35,20 @@ class ProductCard extends Component {
   }
 
   render() {
+    let strategy = this.state.strategy;
     return (
       <Card className="margin-auto shadow-sm bg-white rounded" style={{minHeight: 213, marginBottom: 20, width: 300}}>
-        <Link to={"/product/" + this.state.strategy.id} >
+        <Link to={"/strategy/" + this.state.strategy.code} >
           <Row>
             <Col xs="6">
-              <Badge id="status" className="mr-1" style={{backgroundColor:'#4F6DF5', color: 'white', marginTop: 20, marginRight: 0, marginBottom: 0, marginLeft: 20}}>Live</Badge>
-              <Tooltip style={{backgroundColor: '#4F6DF5', color: 'white', border: '1px solid'}} placement="right" isOpen={this.state.tooltipOpen} target="status" toggle={this.toggle}>
-                This strategy is live!
-              </Tooltip>
+              {strategy.is_live ?
+                <div>
+                  <Badge id="status" className="mr-1" style={{backgroundColor:'#4F6DF5', color: 'white', marginTop: 20, marginRight: 0, marginBottom: 0, marginLeft: 20}}>Live</Badge>
+                  <Tooltip style={{backgroundColor: '#4F6DF5', color: 'white', border: '1px solid'}} placement="right" isOpen={this.state.tooltipOpen} target="status" toggle={this.toggle}>
+                    This strategy is live!
+                  </Tooltip>
+                </div>
+              : null}
             </Col>
             <Col xs="6">
               <Tooltip style={{backgroundColor: '#4F6DF5', color: 'white', border: '1px solid'}} placement="right" isOpen={this.state.tooltip2Open} target="info" toggle={this.toggle2}>
@@ -50,9 +61,9 @@ class ProductCard extends Component {
               </p>
             </Col>
           </Row>
-          <h5 className="no-decoration black-color font-20 margin-0 margin-10 hmargin-20">ICICI Bank April FUT</h5>
-          <p className="no-decoration grey-color margin-0 hmargin-20">Technical: MACD (9,26,35)</p>
-          <p className="no-decoration grey-color hmargin-20">Risk 15% on Capital for 6m</p>
+          <h5 className="no-decoration black-color font-16 margin-0 margin-10 hmargin-20">{strategy.name}</h5>
+          <p className="no-decoration grey-color margin-0 font-12 hmargin-20">Technical: MACD (9,26,35)</p>
+          <p className="no-decoration grey-color font-12 hmargin-20">Risk 15% on Capital for 6m</p>
           <Row>
             <Col xs="6">
               <p className="no-decoration black-color margin-0 hmargin-20">NSE</p>
@@ -62,7 +73,7 @@ class ProductCard extends Component {
               <p className="no-decoration grey-color margin-0" style={{marginLeft: 20}}>126.65</p>
             </Col>
             <Col xs="6" className="no-decoration grey-color text-right">
-              <p className="no-decoration black-color margin-0" style={{marginRight: 20}}>STAB001</p>
+              <p className="no-decoration black-color margin-0" style={{marginRight: 20}}>{strategy.code}</p>
               <p className="no-decoration grey-color margin-0" style={{marginRight: 20}}>+3.2% p/m</p>
               <p className="no-decoration black-color margin-0 font-weight-600" style={{marginRight: 20}}>Sell</p>
               <p className="no-decoration grey-color font-12 margin-0" style={{marginRight: 20}}>31-12-19 | 11:59:59</p>

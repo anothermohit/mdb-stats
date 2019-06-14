@@ -1,16 +1,13 @@
-import React, { Component, Suspense } from 'react';
-import { Link } from 'react-router-dom';
-import { Badge, Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import React, { Component } from 'react';
+import { Button, Card, Col, Container, Input, Row } from 'reactstrap';
 import ProductCard from './productCard.js';
 import Tables from './tables.js';
 import DashboardCurve from './dashboard-curve.js';
-import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import $ from 'jquery';
 
 class Product extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       detailedStrategy: null,
       newReview: '',
@@ -22,8 +19,8 @@ class Product extends Component {
     }
   }
 
-  componentWillMount() {
-    this.getDetailedStrategy(1);
+  componentDidMount() {
+    this.getDetailedStrategy();
   }
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
@@ -39,7 +36,9 @@ class Product extends Component {
       this.setState({reviews})
   }
 
-  getDetailedStrategy(id) {
+  getDetailedStrategy() {
+    let id = parseInt(this.props.match.params.id.replace('STAB', ''));
+
     var self = this;
     var settings = {
       "async": true,
@@ -58,7 +57,7 @@ class Product extends Component {
     }
 
     $.ajax(settings).done(function (response) {
-      console.log(response);
+      console.log(response)
       self.setState({detailedStrategy : response})
     });
   }
@@ -75,13 +74,14 @@ class Product extends Component {
   }
 
   render() {
+    let strategy = this.state.detailedStrategy || {};
     return (
       <div>
         <div className="app align-items-center">
           <Container style={{paddingTop: 80}}>
-            <Row className="justify-content-center cursor-pointer">
+            <Row className="justify-content-center">
               <Col md="4">
-                <ProductCard strategy={this.state.detailedStrategy} />
+                <ProductCard strategy={strategy} />
               </Col>
               <Col md="4">
                 <Tables />
@@ -98,21 +98,35 @@ class Product extends Component {
             <Row>
               <Col md="2">
               </Col>
+
               <Col md="8">
-                <fieldset style={{marginBottom: 24}} class="rating">
-                  <input type="radio" id="star5" name="rating" value="5" /><label className="full cursor-pointer" for="star5" title="Awesome - 5 stars"></label>
-                  <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half cursor-pointer" for="star4half" title="Pretty good - 4.5 stars"></label>
-                  <input type="radio" id="star4" name="rating" value="4" /><label className="full cursor-pointer" for="star4" title="Pretty good - 4 stars"></label>
-                  <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half cursor-pointer" for="star3half" title="Meh - 3.5 stars"></label>
-                  <input type="radio" id="star3" name="rating" value="3" /><label className="full cursor-pointer" for="star3" title="Meh - 3 stars"></label>
-                  <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half cursor-pointer" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                  <input type="radio" id="star2" name="rating" value="2" /><label className="full cursor-pointer" for="star2" title="Kinda bad - 2 stars"></label>
-                  <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half cursor-pointer" for="star1half" title="Meh - 1.5 stars"></label>
-                  <input type="radio" id="star1" name="rating" value="1" /><label className="full cursor-pointer" for="star1" title="Sucks big time - 1 star"></label>
-                  <input type="radio" id="starhalf" name="rating" value="half" /><label class="half cursor-pointer" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                <h5 style={{margin: 'auto', margin: 20, textAlign: 'center'}}>Description</h5>
+                <p>{strategy.description}</p>
+              </Col>
+
+              <Col md="2">
+              </Col>
+            </Row>
+
+            <Row>
+              <Col md="2">
+              </Col>
+              <Col md="8">
+                <fieldset style={{marginBottom: 24}} className="rating">
+                  <input type="radio" id="star5" name="rating" value="5" /><label className="full cursor-pointer" htmlFor="star5" title="Awesome - 5 stars"></label>
+                  <input type="radio" id="star4half" name="rating" value="4 and a half" /><label className="half cursor-pointer" htmlFor="star4half" title="Pretty good - 4.5 stars"></label>
+                  <input type="radio" id="star4" name="rating" value="4" /><label className="full cursor-pointer" htmlFor="star4" title="Pretty good - 4 stars"></label>
+                  <input type="radio" id="star3half" name="rating" value="3 and a half" /><label className="half cursor-pointer" htmlFor="star3half" title="Meh - 3.5 stars"></label>
+                  <input type="radio" id="star3" name="rating" value="3" /><label className="full cursor-pointer" htmlFor="star3" title="Meh - 3 stars"></label>
+                  <input type="radio" id="star2half" name="rating" value="2 and a half" /><label className="half cursor-pointer" htmlFor="star2half" title="Kinda bad - 2.5 stars"></label>
+                  <input type="radio" id="star2" name="rating" value="2" /><label className="full cursor-pointer" htmlFor="star2" title="Kinda bad - 2 stars"></label>
+                  <input type="radio" id="star1half" name="rating" value="1 and a half" /><label className="half cursor-pointer" htmlFor="star1half" title="Meh - 1.5 stars"></label>
+                  <input type="radio" id="star1" name="rating" value="1" /><label className="full cursor-pointer" htmlFor="star1" title="Sucks big time - 1 star"></label>
+                  <input type="radio" id="starhalf" name="rating" value="half" /><label className="half cursor-pointer" htmlFor="starhalf" title="Sucks big time - 0.5 stars"></label>
                 </fieldset>
               </Col>
             </Row>
+
             <Row className='bmargin-24'>
               <Col md="2">
               </Col>
@@ -140,6 +154,7 @@ class Product extends Component {
                 </div>
               </Col>
             </Row>
+
             <Row>
               <h5 style={{margin: 'auto', marginBottom: 10}}>Reviews</h5>
             </Row>
@@ -147,8 +162,8 @@ class Product extends Component {
               <Col md="2">
               </Col>
               <Col md="8">
-                {this.state.reviews.map((review) => (
-                  <div>
+                {this.state.reviews.map((review, i) => (
+                  <div key={i}>
                     <Card className="shadow-sm bg-white rounded" style={{marginTop: 20}}>
                       <Row>
                         <Col xs="1">
