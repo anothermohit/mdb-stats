@@ -4,6 +4,7 @@ import ProductCard from './productCard';
 import { Pagination, PaginationItem, PaginationLink, Button, ButtonGroup, Progress } from 'reactstrap';
 import { Typeahead } from 'reactstrap-typeahead';
 import $ from 'jquery';
+import * as ls from "local-storage";
 var request = require("request");
 
 export default class Listings extends React.Component {
@@ -70,7 +71,6 @@ export default class Listings extends React.Component {
       "method": "GET",
       "headers": {
         "Accept": "application/json",
-        "X-CSRFToken": "nzNxMdJWQmQFaPdixjIfnG3FPj8FRUVwVo5TdhMAUi3PgCccqwek2qlNOmFsmOZL",
         "cache-control": "no-cache",
         "Postman-Token": "becc9911-3435-4332-bcf8-e25ed1c5f15c",
         "Access-Control-Allow-Origin": "*",

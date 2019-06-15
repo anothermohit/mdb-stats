@@ -5,6 +5,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Login from './components/login';
 import Register from './components/register';
+import ResetPassword from './components/resetPassword';
 import Listings from './components/listings';
 import Landing from './components/landing';
 import Features from './components/features';
@@ -17,6 +18,7 @@ import Profile from './components/profile';
 import Dashboard from './components/dashboard';
 import Users from './components/users';
 import User from './components/user';
+import * as ls from "local-storage";
 
 const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
 
@@ -37,6 +39,7 @@ ScrollToTop = withRouter(ScrollToTop);
 function App() {
   console.warn = () => {};
 
+  console.log(ls.get('token'))
   return (
     <Router>
       <ScrollToTop>
@@ -44,6 +47,7 @@ function App() {
           <Header />
           <div>
             <Route exact path="/register" component={Register} />
+            <Route exact path="/reset-password" component={ResetPassword} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/features" component={Features} />
             <Route exact path="/strategy/:id" component={Product} />

@@ -13,7 +13,7 @@ class Register extends Component {
                 <Card className="mx-4">
                   <CardBody className="p-4">
                     <Form>
-                      <h1>Register</h1>
+                      <h4>Register</h4>
                       <p className="text-muted">Create your account</p>
                       <InputGroup className="mb-3">
                         <InputGroupAddon addonType="prepend">
@@ -25,9 +25,9 @@ class Register extends Component {
                       </InputGroup>
                       <InputGroup className="mb-3">
                         <InputGroupAddon addonType="prepend">
-                          <InputGroupText>@</InputGroupText>
+                          <InputGroupText></InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Email" autoComplete="email" />
+                        <Input type="number" placeholder="Mobile Number" autoComplete="mobile-number" />
                       </InputGroup>
                       <InputGroup className="mb-3">
                         <InputGroupAddon addonType="prepend">
@@ -46,20 +46,10 @@ class Register extends Component {
                         <Input type="password" placeholder="Repeat password" autoComplete="new-password" />
                       </InputGroup>
                       <Link to="/login">
-                        <Button color="success" block>Create Account</Button>
+                        <Button className="blue-background white-color no-border" block>Create Account</Button>
                       </Link>
                     </Form>
                   </CardBody>
-                  <CardFooter className="p-4">
-                    <Row>
-                      <Col xs="12" sm="6">
-                        <Button className="btn-facebook mb-1" block><span>Facebook</span></Button>
-                      </Col>
-                      <Col xs="12" sm="6">
-                        <Button className="btn-google mb-1" block><span>Google</span></Button>
-                      </Col>
-                    </Row>
-                  </CardFooter>
                 </Card>
               </Col>
             </Row>

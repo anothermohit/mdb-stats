@@ -4,7 +4,7 @@ import {Container, Row, Col, Card} from 'reactstrap';
 export default function Features() {
   return (
     <Container>
-      <h3 style={{paddingTop: 40}} className="center-align">Features</h3>
+      <h3 style={{paddingTop: 40}} className="center-align font-20">Features</h3>
       <Row>
         <Col sm="12" lg="4">
           <Card className="margin-auto shadow-sm mb-5 bg-white rounded" style={{width: 360, minHeight: 213, marginBottom: 20}}>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import * as ls from "local-storage";
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 import $ from 'jquery';
 
 class Login extends Component {
@@ -17,6 +17,15 @@ class Login extends Component {
   }
 
   login() {
+    if (!this.state.username || !this.state.password) {
+      Swal.fire({
+        title: 'Empty Fields',
+        text: 'Please enter your Username and password',
+        type: 'error',
+        confirmButtonColor: '#4F6DF5'
+      });
+      return;
+    }
     // +919013468987, testpass
     $.post("https://test.algobulls.com/v1/login_customer", {username: this.state.username, password: this.state.password} , function(response) {
       if (response.token) {
@@ -24,7 +33,12 @@ class Login extends Component {
         window.location.href = '/';
       }
       else
-        swal('Unauthorized', 'Invalid Username or password', 'error');
+        Swal.fire({
+          title: 'Incorrect Username or Password',
+          text: 'Please enter your correct Username and password',
+          type: 'error',
+          confirmButtonColor: '#4F6DF5'
+        });
     });
   }
 
@@ -69,7 +83,9 @@ class Login extends Component {
                             <Button onClick={this.login.bind(this)} className="blue-background white-color no-border">Login</Button>
                           </Col>
                           <Col xs="6" className="text-right">
-                            <Button color="link" className="px-0">Forgot password?</Button>
+                            <Link to="/reset-password">
+                              <Button color="link" className="px-0">Forgot password?</Button>
+                            </Link>
                           </Col>
                         </Row>
                       </Form>
@@ -83,7 +99,7 @@ class Login extends Component {
                         <h2>Sign up</h2>
                         <p>If you do not have an account, please sign up!</p>
                         <Link to="/register">
-                          <Button className="mt-3 white-background" active tabIndex={-1}>Register Now!</Button>
+                          <Button className="mt-3 white-background blue-color no-border" tabIndex={-1}>Register Now!</Button>
                         </Link>
                       </div>
                     </CardBody>

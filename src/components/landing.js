@@ -52,7 +52,7 @@ export default class Landing extends React.Component {
           </div>
 
           <Container className="white-background">
-            <h3 style={{paddingTop: 40}} className="center-align">Top Strategies</h3>
+            <h3 style={{paddingTop: 40}} className="center-align font-20">Top Strategies</h3>
             <Row>
               <Col sm="12" md="4">
                 <ProductCard />

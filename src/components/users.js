@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Badge, Card, CardBody, CardHeader, Col, Row, Table, Container } from 'reactstrap';
 import * as ls from "local-storage";
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 import usersData from '../utilities/usersData'
 
@@ -32,7 +32,12 @@ function UserRow(props) {
 class Users extends Component {
   componentWillMount() {
     if (ls.get('user' != 'partner')) {
-      swal('Unauthorized', 'Sorry, you are not authorized for this page');
+      Swal.fire({
+        title: 'Unauthorized',
+        text: 'Sorry you are not authorized to view this page',
+        type: 'error',
+        confirmButtonColor: '#4F6DF5'
+      });
       window.location.href = '/'
     }
   }
