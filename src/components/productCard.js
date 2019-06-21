@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Badge, Button, Card, Col, Row, Tooltip } from 'reactstrap';
 import $ from 'jquery';
+import button from './button.css'
 
 class ProductCard extends Component {
   constructor(props) {
@@ -94,6 +95,7 @@ class ProductCard extends Component {
             </Link>
           </Col>
         </Row>
+        <input type="submit" value="Pay with Razorpay" class="razorpay-payment-button" />
       </Card>
     )
   }
