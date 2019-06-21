@@ -25,6 +25,23 @@
   </head>
   <body class="full-width full-height margin-0">
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <form action="https://www.example.com/payment/success/" method="POST">
+      <script    src="https://checkout.razorpay.com/v1/checkout.js"
+      data-key= rzp_test_f3VauxjvPmj6gD // Enter the Key ID generated from the Dashboard
+      data-amount="29935" // Amount is in currency subunits. Default currency is INR. Hence, 29935 refers to 29935 paise or INR 299.35.
+      data-currency="INR"
+      data-order_id= ""// To be passed when using Orders API.
+      data-buttontext="Pay with Razorpay"
+      data-name="Acme Corp"
+      data-description="A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami"
+      data-image="https://static1.squarespace.com/static/5b058d392714e54fa7434acb/5bd1df50e4966bef0e0d864b/5bd1df50e4966bef0e0d864c/1546432900822/france-flag-button-square-icon-256.png"
+      data-prefill.name="Sumit"
+      data-prefill.email="smartsumitalways321@gmail.com"
+      data-theme.color="#528FF0">
+      </script>
+      <input type="hidden" custom="Hidden Element" name="hidden">
+    </form>
     <div id="root" class="full-width full-height"></div>
     <!--
       This HTML file is a template.
