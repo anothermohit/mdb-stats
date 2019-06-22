@@ -95,7 +95,6 @@ class ProductCard extends Component {
             </Link>
           </Col>
         </Row>
-        <input type="submit" value="Pay with Razorpay" class="razorpay-payment-button" />
       </Card>
     )
   }

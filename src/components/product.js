@@ -3,6 +3,7 @@ import { Button, Card, Col, Container, Input, Row } from 'reactstrap';
 import ProductCard from './productCard.js';
 import Tables from './tables.js';
 import DashboardCurve from './dashboard-curve.js';
+import Swal from 'sweetalert2';
 import $ from 'jquery';
 
 class Product extends Component {
@@ -73,6 +74,30 @@ class Product extends Component {
     document.getElementById('text').value = '';
   }
 
+  pay() {
+    let options = {
+      "key": "rzp_live_7kPTfIHjNmgnQq",
+      "amount":100, // 2000 paise = INR 20
+      "name": "Algobulls",
+      "description": "Order #",
+      "handler": function (response){
+        console.log(response)
+        Swal.fire({
+          title: 'Payment Successful',
+          text: 'Transaction ID - ' + response.razorpay_payment_id,
+          type: 'success',
+          confirmButtonColor: '#4F6DF5'
+        });
+       },
+      "theme": {
+          "color": "#4F6DF5"
+      }
+    };
+
+    let rzp =new window.Razorpay(options);
+    rzp.open();
+  }
+
   render() {
     let strategy = this.state.detailedStrategy || {};
     return (
@@ -88,6 +113,14 @@ class Product extends Component {
               </Col>
             </Row>
             <Row>
+            <Col md="2">
+            </Col>
+            <Col md="8">
+
+            </Col>
+            </Row>
+
+            <Row>
               <Col md="2">
               </Col>
               <Col md="8">
@@ -100,6 +133,7 @@ class Product extends Component {
               </Col>
 
               <Col md="8">
+                <Button onClick={this.pay.bind(this)} className="no-border" style={{width: 100, backgroundColor:'#4F6DF5', color: 'white', marginLeft: 'auto', marginRight: 'auto', marginBottom: '20px', marginTop: '20px'}} block>Buy Now</Button>
                 <h5 style={{margin: 'auto', margin: 20, textAlign: 'center'}}>Description</h5>
                 <p>{strategy.description}</p>
               </Col>

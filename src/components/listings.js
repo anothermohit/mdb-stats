@@ -254,7 +254,7 @@ export default class Listings extends React.Component {
                     {
                       this.state.pages.map((i) => {
                         return (
-                          <PaginationItem>
+                          <PaginationItem key={i}>
                             <PaginationLink id={i} onClick={this.updatePage.bind(this, i)} >
                               {i}
                             </PaginationLink>
