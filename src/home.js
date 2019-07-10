@@ -227,16 +227,16 @@ class Home extends Component {
                 <Line data={this.state.dataLine2} options={{ responsive: true }} />
               </MDBTabPane>
               <MDBTabPane tabId="3" role="tabpanel" style={{backgroundColor: 'white', marginLeft: 250, height: 630, width: 900}}>
-                <h3 style={{color: '#08377a', paddingTop: 250, paddingLeft: 20}}>Clinical Indicator</h3>
+                <h3 style={{color: '#08377a', paddingTop: 250, paddingLeft: 30}}>Clinical Indicator <span style={{paddingLeft: 275}}>Operational Indicator</span></h3>
                 <p className="mt-2">
-                  <span style={{paddingLeft: 10}}>Repeat Injections</span>
-                  <span style={{paddingLeft: 10}}>IV Issues</span>
-                  <span style={{paddingLeft: 10}}>Protocol Adherence</span>
-                  <span style={{paddingLeft: 10}}>Critical Equip</span>
-                  <span style={{paddingLeft: 10}}>Atypical Injctions</span>
-                  <span style={{paddingLeft: 10}}>Lost Time</span>
-                  <span style={{paddingLeft: 10}}>Contrast Waste</span>
-                  <span style={{paddingLeft: 10}}>Equip Uptime</span>
+                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>Repeat Injections</span>
+                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>IV Issues</span>
+                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>Protocol Adherence</span>
+                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>Critical Equip</span>
+                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>Atypical Injctions</span>
+                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>Lost Time</span>
+                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>Contrast Waste</span>
+                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>Equip Uptime</span>
                 </p>
                 <MDBIcon icon="syringe" />
               </MDBTabPane>
