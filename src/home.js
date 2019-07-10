@@ -167,19 +167,19 @@ class Home extends Component {
                 <strong>11 Injectors</strong> has been selected for this report
               </h3>
               <br />
-              <p style={{color: '#08377a'}}><strong>7 of 11</strong> injectors have a workstation</p>
+              <p style={{color: '#08377a'}}><strong>7 of 11 injectors</strong> have a workstation</p>
               <div style={{backgroundColor: '#e6e6e6', width: 300, height: 20}}>
                 <div style={{backgroundColor: '#46a4c5', width: 200, height: 20}}>
                 </div>
               </div>
               <br />
-              <p style={{color: '#08377a'}}><strong>5 of 11</strong> injectors have a VirtualCare</p>
+              <p style={{color: '#08377a'}}><strong>5 of 11 injectors</strong> have a VirtualCare</p>
               <div style={{backgroundColor: '#e6e6e6', width: 100, height: 20}}>
                 <div style={{backgroundColor: '#46a4c5', width: 150, height: 20}}>
                 </div>
               </div>
               <br />
-              <p style={{color: '#08377a'}}><strong>5 of 11</strong> injectors have a Bayer Service</p>
+              <p style={{color: '#08377a'}}><strong>5 of 11 injectors</strong> have a Bayer Service</p>
               <div style={{backgroundColor: '#e6e6e6', width: 300, height: 20}}>
                 <div style={{backgroundColor: '#46a4c5', width: 150, height: 20}}>
                 </div>
@@ -197,18 +197,18 @@ class Home extends Component {
               <MDBNavItem>
                 <MDBNavLink to="#" className={this.state.activeItem === "1" ? "active" : ""} onClick={this.toggle("1")} role="tab" >
                   <h3>Monthly Injections</h3>
-                  <h4 style={{color: '#08377a'}}> <MDBIcon icon="arrow-up" /> | 2145 <span style={{backgroundColor: '#b4d4fd'}}>+169</span></h4>
-                  <p>56,553 since Jan 01 2018</p>
+                  <h4 style={{color: '#08377a'}}> <MDBIcon icon="arrow-up" /><strong> 2145 <span style={{backgroundColor: '#b4d4fd'}}>+169</span></strong></h4>
+                  <p><span style={{color: '#08377a'}}><strong>56,553</strong></span> since Jan 01 2018</p>
                    <MDBIcon far icon="clock" />
-                  <p>17 mins average per injection</p>
+                  <p><span style={{color: '#08377a'}}><strong>17 mins</strong></span> average per injection</p>
                 </MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
                 <MDBNavLink to="#" className={this.state.activeItem === "2" ? "active" : ""} onClick={this.toggle("2")} role="tab" >
                   <h3>Contrast Use</h3>
-                  <h4> <MDBIcon icon="arrow-up" /> <span style={{color: '#08377a'}}>532,847ml</span> <span style={{backgroundColor: '#b4d4fd'}}>+1738</span></h4>
-                  <p><span style={{color: '#08377a'}}>6,394,167ml</span> since Jan 01 2018</p>
-                  <p><span style={{color: '#08377a'}}>$575k ($0.09 per ml)</span><MDBIcon icon="pencil-alt" />EDIT</p>
+                  <h4 style={{color: '#08377a'}}> <MDBIcon icon="arrow-up" /> <strong><span style={{color: '#08377a'}}>532,847ml</span> <span style={{backgroundColor: '#b4d4fd'}}>+1738 </span></strong></h4>
+                  <p><span style={{color: '#08377a'}}><strong>6,394,167ml</strong></span> since Jan 01 2018</p>
+                  <p><span style={{color: '#08377a'}}><strong>$575k ($0.09 per ml)</strong></span><MDBIcon icon="pencil-alt" />EDIT</p>
                 </MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
