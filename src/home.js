@@ -158,7 +158,7 @@ class Home extends Component {
 
     render() {
       return (
-        <div style={{display: 'inline'}}>
+        <div>
         <h1 style={{color: 'white', paddingTop: 50, marginLeft: 50}}><strong>SUMMARY</strong></h1>
         <MDBCol>
           <MDBCard style={{ width: "22rem", marginLeft: 35, marginTop: 20}}>
@@ -190,14 +190,14 @@ class Home extends Component {
             </MDBCardBody>
           </MDBCard>
         </MDBCol>
-        <MDBContainer style={{marginRight: 40}}>
+        <MDBContainer style={{marginRight: 40, marginTop: -470}}>
           <MDBRow>
             <MDBCol>
             <MDBNav className="nav-tabs mt-5" style={{float: 'right'}}>
               <MDBNavItem>
                 <MDBNavLink to="#" className={this.state.activeItem === "1" ? "active" : ""} onClick={this.toggle("1")} role="tab" >
                   <h3>Monthly Injections</h3>
-                  <h4> <MDBIcon icon="arrow-up" /> | 2145 +169</h4>
+                  <h4 style={{color: '#08377a'}}> <MDBIcon icon="arrow-up" /> | 2145 <span style={{backgroundColor: '#b4d4fd'}}>+169</span></h4>
                   <p>56,553 since Jan 01 2018</p>
                    <MDBIcon far icon="clock" />
                   <p>17 mins average per injection</p>
@@ -206,16 +206,16 @@ class Home extends Component {
               <MDBNavItem>
                 <MDBNavLink to="#" className={this.state.activeItem === "2" ? "active" : ""} onClick={this.toggle("2")} role="tab" >
                   <h3>Contrast Use</h3>
-                  <h4> <MDBIcon icon="arrow-up" /> | 532,847ml +1738</h4>
-                  <p>6,394,167 since Jan 01 2018</p>
-                  <p>$575k ($0.09 per ml)<MDBIcon icon="pencil-alt" />EDIT</p>
+                  <h4> <MDBIcon icon="arrow-up" /> <span style={{color: '#08377a'}}>532,847ml</span> <span style={{backgroundColor: '#b4d4fd'}}>+1738</span></h4>
+                  <p><span style={{color: '#08377a'}}>6,394,167ml</span> since Jan 01 2018</p>
+                  <p><span style={{color: '#08377a'}}>$575k ($0.09 per ml)</span><MDBIcon icon="pencil-alt" />EDIT</p>
                 </MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
                 <MDBNavLink to="#" className={this.state.activeItem === "3" ? "active" : ""} onClick={this.toggle("3")} role="tab" >
                   <h3>Indicator Performance</h3>
-                  <h4>9 total metrics</h4>
-                  <p>3 1 </p><p>5</p>
+                  <h4 style={{color: '#08377a'}}>9 total metrics</h4>
+                  <p style={{paddingLeft: 10}}>3   <span style={{paddingLeft: 10}}>1</span> </p><p>5</p>
                 </MDBNavLink>
               </MDBNavItem>
             </MDBNav>
@@ -226,13 +226,17 @@ class Home extends Component {
               <MDBTabPane style={{width: 900, marginLeft: 250, backgroundColor: 'white'}} tabId="2" role="tabpanel">
                 <Line data={this.state.dataLine2} options={{ responsive: true }} />
               </MDBTabPane>
-              <MDBTabPane tabId="3" role="tabpanel" style={{backgroundColor: 'white', marginLeft: 250, height: 600}}>
+              <MDBTabPane tabId="3" role="tabpanel" style={{backgroundColor: 'white', marginLeft: 250, height: 630, width: 900}}>
+                <h3 style={{color: '#08377a', paddingTop: 250, paddingLeft: 20}}>Clinical Indicator</h3>
                 <p className="mt-2">
-                  Quisquam aperiam, pariatur. Tempora, placeat ratione porro
-                  voluptate odit minima. Lorem ipsum dolor sit amet,
-                  consectetur adipisicing elit. Nihil odit magnam minima,
-                  soluta doloribus reiciendis molestiae placeat unde eos
-                  molestias.
+                  <span style={{paddingLeft: 10}}>Repeat Injections</span>
+                  <span style={{paddingLeft: 10}}>IV Issues</span>
+                  <span style={{paddingLeft: 10}}>Protocol Adherence</span>
+                  <span style={{paddingLeft: 10}}>Critical Equip</span>
+                  <span style={{paddingLeft: 10}}>Atypical Injctions</span>
+                  <span style={{paddingLeft: 10}}>Lost Time</span>
+                  <span style={{paddingLeft: 10}}>Contrast Waste</span>
+                  <span style={{paddingLeft: 10}}>Equip Uptime</span>
                 </p>
                 <MDBIcon icon="syringe" />
               </MDBTabPane>
