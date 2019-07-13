@@ -293,20 +293,28 @@ class Home extends Component {
               </MDBTabPane>
               <MDBTabPane tabId="3" role="tabpanel" style={{backgroundColor: 'white', marginLeft: 250, height: 630, width: 900}}>
                 <h3 style={{color: '#08377a', paddingTop: 250, paddingLeft: 30}}>Clinical Indicator <span style={{paddingLeft: 275}}>Operational Indicator</span></h3>
-                <div className="row" style={{paddingLeft: 35, color: '#a1a1a1', marginLeft: 0}}>
-                    <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, marginLeft: 0}}/>
+                <div style={{marginTop: 150}}>
+                  <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, paddingLeft: 40}}/>
+                  <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, paddingLeft: 58}}/>
+                  <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, marginLeft: 55}}/>
+                  <img src="http://iconsetc.com/icons-watermarks/simple-orange-gradient/bfa/bfa_long-arrow-down/bfa_long-arrow-down_simple-orange-gradient_512x512.png" alt="up" style={{height: 60, marginLeft: 84}}/>
+                  <img src="http://iconsetc.com/icons-watermarks/simple-orange-gradient/bfa/bfa_long-arrow-down/bfa_long-arrow-down_simple-orange-gradient_512x512.png" alt="up" style={{height: 60, paddingLeft: 45}}/>
+                  <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, paddingLeft: 45}}/>
+                  <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, marginLeft: 52}}/>
+                  <img src="http://iconsetc.com/icons-watermarks/simple-orange-gradient/bfa/bfa_long-arrow-down/bfa_long-arrow-down_simple-orange-gradient_512x512.png" alt="up" style={{height: 60, marginLeft: 50}}/>
+                  <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, marginLeft: 40}}/>
+                  <div className="row" style={{paddingLeft: 35, color: '#a1a1a1', marginTop: 20}}>
                     <p style={{paddingLeft: 10}}>Repeat <br /> Injections</p>
-                    <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, marginLeft: 0}}/>
-                      <p style={{paddingLeft: 30}}>IV <br /> Issues</p>
-                      <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, marginLeft: 0}}/>
-                      <p style={{paddingLeft: 30}}>Protocol <br /> Adherence</p>
-                      <p style={{paddingLeft: 30}}>Critical Equip. <br /> Service Alerts</p>
-                      <p style={{paddingLeft: 30}}>Atypical <br /> Injctions</p>
-                      <p style={{paddingLeft: 30}}>Lost <br /> Time</p>
-                      <p style={{paddingLeft: 30}}>Contrast <br /> Waste</p>
-                      <p style={{paddingLeft: 30}}>Equipment <br /> Uptime</p>
-                      <p style={{paddingLeft: 30}}>Data <br /> Quality</p>
-                </div>
+                    <p style={{paddingLeft: 30}}>IV <br /> Issues</p>
+                    <p style={{paddingLeft: 30}}>Protocol <br /> Adherence</p>
+                    <p style={{paddingLeft: 30}}>Critical Equip. <br /> Service Alerts</p>
+                    <p style={{paddingLeft: 30}}>Atypical <br /> Injctions</p>
+                    <p style={{paddingLeft: 30}}>Lost <br /> Time</p>
+                    <p style={{paddingLeft: 30}}>Contrast <br /> Waste</p>
+                    <p style={{paddingLeft: 30}}>Equipment <br /> Uptime</p>
+                    <p style={{paddingLeft: 30}}>Data <br /> Quality</p>
+                  </div>
+              </div>
               </MDBTabPane>
             </MDBTabContent>
           </MDBCol>
