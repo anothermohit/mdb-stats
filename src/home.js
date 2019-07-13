@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { MDBIcon, MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBContainer, MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink } from "mdbreact";
 import { Line } from "react-chartjs-2";
+import './index.css';
 
 class Home extends Component {
     state = {
@@ -279,6 +280,7 @@ class Home extends Component {
                   <h3>Indicator Performance</h3>
                   <h4 style={{color: '#08377a'}}>9 total metrics</h4>
                   <p style={{paddingLeft: 10}}>3   <span style={{paddingLeft: 10}}>1</span> </p><p>5</p>
+
                 </MDBNavLink>
               </MDBNavItem>
             </MDBNav>
@@ -291,17 +293,20 @@ class Home extends Component {
               </MDBTabPane>
               <MDBTabPane tabId="3" role="tabpanel" style={{backgroundColor: 'white', marginLeft: 250, height: 630, width: 900}}>
                 <h3 style={{color: '#08377a', paddingTop: 250, paddingLeft: 30}}>Clinical Indicator <span style={{paddingLeft: 275}}>Operational Indicator</span></h3>
-                <p className="mt-2">
-                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>Repeat Injections</span>
-                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>IV Issues</span>
-                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>Protocol Adherence</span>
-                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>Critical Equip</span>
-                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>Atypical Injctions</span>
-                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>Lost Time</span>
-                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>Contrast Waste</span>
-                  <span style={{paddingLeft: 10, color: '#a1a1a1'}}>Equip Uptime</span>
-                </p>
-                <MDBIcon icon="syringe" />
+                <div className="row" style={{paddingLeft: 35, color: '#a1a1a1', marginLeft: 0}}>
+                    <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, marginLeft: 0}}/>
+                    <p style={{paddingLeft: 10}}>Repeat <br /> Injections</p>
+                    <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, marginLeft: 0}}/>
+                      <p style={{paddingLeft: 30}}>IV <br /> Issues</p>
+                      <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, marginLeft: 0}}/>
+                      <p style={{paddingLeft: 30}}>Protocol <br /> Adherence</p>
+                      <p style={{paddingLeft: 30}}>Critical Equip. <br /> Service Alerts</p>
+                      <p style={{paddingLeft: 30}}>Atypical <br /> Injctions</p>
+                      <p style={{paddingLeft: 30}}>Lost <br /> Time</p>
+                      <p style={{paddingLeft: 30}}>Contrast <br /> Waste</p>
+                      <p style={{paddingLeft: 30}}>Equipment <br /> Uptime</p>
+                      <p style={{paddingLeft: 30}}>Data <br /> Quality</p>
+                </div>
               </MDBTabPane>
             </MDBTabContent>
           </MDBCol>
