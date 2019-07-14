@@ -232,23 +232,22 @@ class Home extends Component {
               </h3>
               <br />
               <p style={{color: '#08377a'}}><strong>7 of 11 injectors</strong> have a workstation</p>
-              <div style={{backgroundColor: '#e6e6e6', width: 300, height: 20}}>
+              <div style={{backgroundColor: '#e6e6e6', width: 300, height: 20, borderTopRightRadius: 15, borderBottomRightRadius: 15}}>
                 <div style={{backgroundColor: '#46a4c5', width: 200, height: 20}}>
                 </div>
               </div>
               <br />
               <p style={{color: '#08377a'}}><strong>5 of 11 injectors</strong> have a VirtualCare</p>
-              <div style={{backgroundColor: '#e6e6e6', width: 300, height: 20}}>
+              <div style={{backgroundColor: '#e6e6e6', width: 300, height: 20, borderTopRightRadius: 15, borderBottomRightRadius: 15}}>
                 <div style={{backgroundColor: '#46a4c5', width: 150, height: 20}}>
                 </div>
               </div>
               <br />
               <p style={{color: '#08377a'}}><strong>5 of 11 injectors</strong> have a Bayer Service</p>
-              <div style={{backgroundColor: '#e6e6e6', width: 300, height: 20}}>
+              <div style={{backgroundColor: '#e6e6e6', width: 300, height: 20, borderTopRightRadius: 15, borderBottomRightRadius: 15}}>
                 <div style={{backgroundColor: '#46a4c5', width: 150, height: 20}}>
                 </div>
               </div>
-              <br />
               <p>Want to adjust your dataset ?</p>
               <p style={{color: '#08377a'}}><i><strong>/PRODUCTS AND DATA</strong></i></p>
             </MDBCardBody>
@@ -263,8 +262,7 @@ class Home extends Component {
                   <h3>Monthly Injections</h3>
                   <h4 style={{color: '#08377a'}}> <MDBIcon icon="arrow-up" /><strong> 2145 <span style={{backgroundColor: '#b4d4fd'}}>+169</span></strong></h4>
                   <p><span style={{color: '#08377a'}}><strong>56,553</strong></span> since Jan 01 2018</p>
-                   <MDBIcon far icon="clock" />
-                  <p><span style={{color: '#08377a'}}><strong>17 mins</strong></span> average per injection</p>
+                  <p><img src="https://image.shutterstock.com/image-vector/clock-icon-trendy-flat-style-260nw-674379841.jpg" style={{width: 24, height: 25}}/><span style={{color: '#08377a'}}><strong>17 mins</strong></span> average per injection</p>
                 </MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
@@ -272,7 +270,7 @@ class Home extends Component {
                   <h3>Contrast Use</h3>
                   <h4 style={{color: '#08377a'}}> <MDBIcon icon="arrow-up" /> <strong><span style={{color: '#08377a'}}>532,847ml</span> <span style={{backgroundColor: '#b4d4fd'}}>+1738 </span></strong></h4>
                   <p><span style={{color: '#08377a'}}><strong>6,394,167ml</strong></span> since Jan 01 2018</p>
-                  <p><span style={{color: '#08377a'}}><strong>$575k ($0.09 per ml)</strong></span><MDBIcon icon="pencil-alt" />EDIT</p>
+                  <p><span style={{color: '#08377a'}}><strong>$575k ($0.09 per ml)</strong></span><img src="https://www.nicepng.com/png/detail/32-324948_pen-clipart-logo-png-edit-pencil-icon-png.png" style={{height: 15, width: 20}}/>EDIT</p>
                 </MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
