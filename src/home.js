@@ -238,7 +238,7 @@ class Home extends Component {
               </div>
               <br />
               <p style={{color: '#08377a'}}><strong>5 of 11 injectors</strong> have a VirtualCare</p>
-              <div style={{backgroundColor: '#e6e6e6', width: 100, height: 20}}>
+              <div style={{backgroundColor: '#e6e6e6', width: 300, height: 20}}>
                 <div style={{backgroundColor: '#46a4c5', width: 150, height: 20}}>
                 </div>
               </div>
@@ -279,8 +279,7 @@ class Home extends Component {
                 <MDBNavLink to="#" className={this.state.activeItem === "3" ? "active" : ""} onClick={this.toggle("3")} role="tab" >
                   <h3>Indicator Performance</h3>
                   <h4 style={{color: '#08377a'}}>9 total metrics</h4>
-                  <p style={{paddingLeft: 10}}>3   <span style={{paddingLeft: 10}}>1</span> </p><p>5</p>
-
+                    <p style={{paddingLeft: 10}}>3   <span style={{paddingLeft: 10}}>1</span> </p><p>5</p>
                 </MDBNavLink>
               </MDBNavItem>
             </MDBNav>
@@ -292,7 +291,7 @@ class Home extends Component {
                 <Line data={this.state.dataLine2} options={{ responsive: true }} />
               </MDBTabPane>
               <MDBTabPane tabId="3" role="tabpanel" style={{backgroundColor: 'white', marginLeft: 250, height: 630, width: 900}}>
-                <h3 style={{color: '#08377a', paddingTop: 250, paddingLeft: 30}}>Clinical Indicator <span style={{paddingLeft: 275}}>Operational Indicator</span></h3>
+                <h3 style={{color: '#08377a', paddingTop: 250, paddingLeft: 30}}><strong>Clinical Indicator <span style={{paddingLeft: 275}}>Operational Indicator</span></strong></h3>
                 <div style={{marginTop: 150}}>
                   <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, paddingLeft: 40}}/>
                   <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, paddingLeft: 58}}/>
