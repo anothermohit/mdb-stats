@@ -232,23 +232,22 @@ class Home extends Component {
               </h3>
               <br />
               <p style={{color: '#08377a'}}><strong>7 of 11 injectors</strong> have a workstation</p>
-              <div style={{backgroundColor: '#e6e6e6', width: 300, height: 20}}>
+              <div style={{backgroundColor: '#e6e6e6', width: 300, height: 20, borderTopRightRadius: 15, borderBottomRightRadius: 15}}>
                 <div style={{backgroundColor: '#46a4c5', width: 200, height: 20}}>
                 </div>
               </div>
               <br />
               <p style={{color: '#08377a'}}><strong>5 of 11 injectors</strong> have a VirtualCare</p>
-              <div style={{backgroundColor: '#e6e6e6', width: 100, height: 20}}>
+              <div style={{backgroundColor: '#e6e6e6', width: 300, height: 20, borderTopRightRadius: 15, borderBottomRightRadius: 15}}>
                 <div style={{backgroundColor: '#46a4c5', width: 150, height: 20}}>
                 </div>
               </div>
               <br />
               <p style={{color: '#08377a'}}><strong>5 of 11 injectors</strong> have a Bayer Service</p>
-              <div style={{backgroundColor: '#e6e6e6', width: 300, height: 20}}>
+              <div style={{backgroundColor: '#e6e6e6', width: 300, height: 20, borderTopRightRadius: 15, borderBottomRightRadius: 15}}>
                 <div style={{backgroundColor: '#46a4c5', width: 150, height: 20}}>
                 </div>
               </div>
-              <br />
               <p>Want to adjust your dataset ?</p>
               <p style={{color: '#08377a'}}><i><strong>/PRODUCTS AND DATA</strong></i></p>
             </MDBCardBody>
@@ -263,8 +262,7 @@ class Home extends Component {
                   <h3>Monthly Injections</h3>
                   <h4 style={{color: '#08377a'}}> <MDBIcon icon="arrow-up" /><strong> 2145 <span style={{backgroundColor: '#b4d4fd'}}>+169</span></strong></h4>
                   <p><span style={{color: '#08377a'}}><strong>56,553</strong></span> since Jan 01 2018</p>
-                   <MDBIcon far icon="clock" />
-                  <p><span style={{color: '#08377a'}}><strong>17 mins</strong></span> average per injection</p>
+                  <p><img src="https://image.shutterstock.com/image-vector/clock-icon-trendy-flat-style-260nw-674379841.jpg" style={{width: 24, height: 25}}/><span style={{color: '#08377a'}}><strong>17 mins</strong></span> average per injection</p>
                 </MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
@@ -272,15 +270,14 @@ class Home extends Component {
                   <h3>Contrast Use</h3>
                   <h4 style={{color: '#08377a'}}> <MDBIcon icon="arrow-up" /> <strong><span style={{color: '#08377a'}}>532,847ml</span> <span style={{backgroundColor: '#b4d4fd'}}>+1738 </span></strong></h4>
                   <p><span style={{color: '#08377a'}}><strong>6,394,167ml</strong></span> since Jan 01 2018</p>
-                  <p><span style={{color: '#08377a'}}><strong>$575k ($0.09 per ml)</strong></span><MDBIcon icon="pencil-alt" />EDIT</p>
+                  <p><span style={{color: '#08377a'}}><strong>$575k ($0.09 per ml)</strong></span><img src="https://www.nicepng.com/png/detail/32-324948_pen-clipart-logo-png-edit-pencil-icon-png.png" style={{height: 15, width: 20}}/>EDIT</p>
                 </MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
                 <MDBNavLink to="#" className={this.state.activeItem === "3" ? "active" : ""} onClick={this.toggle("3")} role="tab" >
                   <h3>Indicator Performance</h3>
                   <h4 style={{color: '#08377a'}}>9 total metrics</h4>
-                  <p style={{paddingLeft: 10}}>3   <span style={{paddingLeft: 10}}>1</span> </p><p>5</p>
-
+                    <p style={{paddingLeft: 10}}>3   <span style={{paddingLeft: 10}}>1</span> </p><p>5</p>
                 </MDBNavLink>
               </MDBNavItem>
             </MDBNav>
@@ -292,21 +289,29 @@ class Home extends Component {
                 <Line data={this.state.dataLine2} options={{ responsive: true }} />
               </MDBTabPane>
               <MDBTabPane tabId="3" role="tabpanel" style={{backgroundColor: 'white', marginLeft: 250, height: 630, width: 900}}>
-                <h3 style={{color: '#08377a', paddingTop: 250, paddingLeft: 30}}>Clinical Indicator <span style={{paddingLeft: 275}}>Operational Indicator</span></h3>
-                <div className="row" style={{paddingLeft: 35, color: '#a1a1a1', marginLeft: 0}}>
-                    <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, marginLeft: 0}}/>
+                <h3 style={{color: '#08377a', paddingTop: 250, paddingLeft: 30}}><strong>Clinical Indicator <span style={{paddingLeft: 275}}>Operational Indicator</span></strong></h3>
+                <div style={{marginTop: 150}}>
+                  <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, paddingLeft: 40}}/>
+                  <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, paddingLeft: 58}}/>
+                  <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, marginLeft: 55}}/>
+                  <img src="http://iconsetc.com/icons-watermarks/simple-orange-gradient/bfa/bfa_long-arrow-down/bfa_long-arrow-down_simple-orange-gradient_512x512.png" alt="up" style={{height: 60, marginLeft: 84}}/>
+                  <img src="http://iconsetc.com/icons-watermarks/simple-orange-gradient/bfa/bfa_long-arrow-down/bfa_long-arrow-down_simple-orange-gradient_512x512.png" alt="up" style={{height: 60, paddingLeft: 45}}/>
+                  <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, paddingLeft: 45}}/>
+                  <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, marginLeft: 52}}/>
+                  <img src="http://iconsetc.com/icons-watermarks/simple-orange-gradient/bfa/bfa_long-arrow-down/bfa_long-arrow-down_simple-orange-gradient_512x512.png" alt="up" style={{height: 60, marginLeft: 50}}/>
+                  <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, marginLeft: 40}}/>
+                  <div className="row" style={{paddingLeft: 35, color: '#a1a1a1', marginTop: 20}}>
                     <p style={{paddingLeft: 10}}>Repeat <br /> Injections</p>
-                    <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, marginLeft: 0}}/>
-                      <p style={{paddingLeft: 30}}>IV <br /> Issues</p>
-                      <img src="http://www.clker.com/cliparts/w/7/s/w/H/h/orange-arrow-up-no-outline-hi.png" alt="up" style={{height: 60, marginLeft: 0}}/>
-                      <p style={{paddingLeft: 30}}>Protocol <br /> Adherence</p>
-                      <p style={{paddingLeft: 30}}>Critical Equip. <br /> Service Alerts</p>
-                      <p style={{paddingLeft: 30}}>Atypical <br /> Injctions</p>
-                      <p style={{paddingLeft: 30}}>Lost <br /> Time</p>
-                      <p style={{paddingLeft: 30}}>Contrast <br /> Waste</p>
-                      <p style={{paddingLeft: 30}}>Equipment <br /> Uptime</p>
-                      <p style={{paddingLeft: 30}}>Data <br /> Quality</p>
-                </div>
+                    <p style={{paddingLeft: 30}}>IV <br /> Issues</p>
+                    <p style={{paddingLeft: 30}}>Protocol <br /> Adherence</p>
+                    <p style={{paddingLeft: 30}}>Critical Equip. <br /> Service Alerts</p>
+                    <p style={{paddingLeft: 30}}>Atypical <br /> Injctions</p>
+                    <p style={{paddingLeft: 30}}>Lost <br /> Time</p>
+                    <p style={{paddingLeft: 30}}>Contrast <br /> Waste</p>
+                    <p style={{paddingLeft: 30}}>Equipment <br /> Uptime</p>
+                    <p style={{paddingLeft: 30}}>Data <br /> Quality</p>
+                  </div>
+              </div>
               </MDBTabPane>
             </MDBTabContent>
           </MDBCol>
